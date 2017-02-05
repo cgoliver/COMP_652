@@ -239,7 +239,69 @@ P(Y=1 \vert x, \alpha) = \sigma\bigg(\sum_i^{m} \alpha_i K(\vek{x}, \vek{x_i})\b
 
 \subsection{Q2 (d): Advantages and disadvantages of kernelized logistic regression}
 
-\subsection{Q3: (a) }
+\subsection{Q3: (a) Kernels}
+
+{\it Statement:} $K(\vek{x}, \vek{z}) = aK_1(\vek{x}, \vek{z}) + bK_{2}(\vek{x}, \vek{z})$ is a kernel given that $K_1$ and $K_2$ are kernels and $a,b \in \mathbb{R}$ and $a, b > 0$.
+
+
+\begin{proof}
+
+
+If $K_1$ and $K_2$ are kernels then we can write them as:
+
+\begin{equation}
+K_1(\vek{x}, \vek{z}) = \phi^1(\vek{x})^T\phi^1(\vek{z})
+\end{equation}
+
+\begin{equation}
+K_2(\vek{x}, \vek{z}) = \phi^2(\vek{x})^T\phi^2(\vek{z})
+\end{equation}
+
+
+We define two new feature mappings $\phi^a(\vek{x})$ and $\phi^b(\vek{x})$ which are scalar products of the original $\phi(\vek{x})$.
+
+\begin{equation}
+\phi^a(\vek{x}) = (\sqrt{a}x_1, \sqrt{a}x_2...\sqrt{a}x_n)
+\end{equation}
+
+\begin{equation}
+\phi^b(\vek{x}) = (\sqrt{b}x_1, \sqrt{b}x_2...\sqrt{b}x_n)
+\end{equation}
+
+Taking their dot products we can construct a new kernel $K^a(\vek{x}, \vek{z})$
+
+\begin{equation}
+K^a(\vek{x}, \vek{z}) = \phi^a(\vek{x})^T \cdot \phi^a(\vek{z}) = (\sqrt{a}\sqrt{a}x_1 z_1 + \sqrt{a}\sqrt{a}x_2 z_2 + ... \sqrt{a}\sqrt{a}x_n z_n ) = aK^2(\vek{x}, \vek{z})
+\end{equation}
+
+We can do the same for $\phi^b({\vek{x}})$.
+
+By conctatenating feature maps $\phi^{a}(\vek{x})$ and $\phi^{b}(\vek{x})$ into $\phi(\vek{x})$ we can express $aK_1 + bK_2$ as a dot product of this new feature map.
+
+\begin{equation}
+\phi(\vek{x})^T \cdot \phi(\vek{z}) = (\sqrt{a}\phi^a(x_1)\sqrt{a}\phi^a(x_1) + \sqrt{a}\phi^a(x_1)\sqrt{a}\phi^a(x_1) + ... + \sqrt{b}\phi^b(x_1)\sqrt{b}\phi^b(x_1) + \sqrt{b}\phi^b(x_1)\sqrt{b}\phi^b(x_1) + ... )
+\end{equation}
+
+Which reduces to 
+
+\begin{equation}
+K(\vek{x}, \vek{z}) = \phi^{a}(\vek{z})^T \cdot \phi^{b}(\vek{z})
+\end{equation}
+\end{proof}
+
+\subsection{Q3 (b) Kernels}
+
+{\it Statement: } $K(\vek{x}, \vek{z}) = K_1(\vek{x}, \vek{z})K_2(\vek{x}, \vek{z})$
+
+\begin{proof}
+
+We can expand each kernel into dot products of their respective feature vectors $\phi^{1}$ and $\phi^{2}$
+
+\begin{equation}
+K(\vek{x}, \vek{z}) = \phi^1(\vek{x}) \cdot \phi^2(\vek{z})
+\end{equation}
+
+\end{proof}
 
 \bibliographystyle{unsrt}
 \bibliography{bibliography}
