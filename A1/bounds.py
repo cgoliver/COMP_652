@@ -35,6 +35,6 @@ plt.show()
 plt.plot(np.arange(0.0000001, 0.999999999, 0.01), [H(a) for a in np.arange(0, 1, 0.01)],\
     label=r"$H(\alpha)$")
 plt.ylabel(r"$H(\alpha)$")
-plt.xlabel(r"$x$")
+plt.xlabel(r"$\alpha$")
 plt.legend()
 plt.savefig("Figures/H_x.pdf", format="pdf")

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.5.22)  4 FEB 2017 23:23
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.5.22)  5 FEB 2017 10:38
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -294,7 +294,20 @@ subscribe by emailing sympa@lirmm.fr with 'subscribe <list> <firstname name>'
 \c@algocf=\count109
 \algocf@algoframe=\box35
 \algocf@algobox=\box36
-) (./A1_Carlos_GonzalezOliver.aux)
+) (./A1_Carlos_GonzalezOliver.aux
+
+LaTeX Warning: Label `fig:ranmutsnomfe_freq' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:ranmutsnomfe_freq' multiply defined.
+
+
+LaTeX Warning: Label `fig:ranmutsnomfe_freq' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:ranmutsnomfe_freq' multiply defined.
+
+)
 \openout1 = `A1_Carlos_GonzalezOliver.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 24.
@@ -310,8 +323,7 @@ LaTeX Font Info:    ... okay on input line 24.
 LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 24.
 LaTeX Font Info:    ... okay on input line 24.
 LaTeX Font Info:    Try loading font information for U+msa on input line 24.
-
-(/usr/local/texlive/2016/texmf-dist/tex/latex/amsfonts/umsa.fd
+ (/usr/local/texlive/2016/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
 LaTeX Font Info:    Try loading font information for U+msb on input line 24.
@@ -421,12 +433,7 @@ pdfTeX warning: /Library/TeX/texbin/pdflatex (file ../Figures/q1d_weights.pdf):
 
 pdfTeX warning: /Library/TeX/texbin/pdflatex (file ../Figures/sigmas.pdf): PDF 
 inclusion: multiple pdfs with page group included in a single page
->]
-
-LaTeX Warning: Citation `minka2003comparison' on page 3 undefined on input line
- 150.
-
-[3] <../Figures/H_x.pdf, id=512, 462.52798pt x 346.89601pt>
+>] [3] <../Figures/H_x.pdf, id=512, 462.52798pt x 346.89601pt>
 File: ../Figures/H_x.pdf Graphic file (type pdf)
 
 <use ../Figures/H_x.pdf>
@@ -439,14 +446,10 @@ File: ../Figures/bounds.pdf Graphic file (type pdf)
 <use ../Figures/bounds.pdf>
 Package pdftex.def Info: ../Figures/bounds.pdf used on input line 181.
 (pdftex.def)             Requested size: 193.50076pt x 145.12895pt.
- [4 <../Figures/H_x.pdf>]
-(./A1_Carlos_GonzalezOliver.bbl) [5 <../Figures/bounds.pdf>]
-(./A1_Carlos_GonzalezOliver.aux)
+ [4 <../Figures/H_x.pdf>] [5 <../Figures/bounds.pdf>] (./A1_Carlos_GonzalezOliv
+er.bbl) [6] (./A1_Carlos_GonzalezOliver.aux)
 
-LaTeX Warning: There were undefined references.
-
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+LaTeX Warning: There were multiply-defined labels.
 
  )
 (\end occurred inside a group at level 1)
@@ -456,11 +459,11 @@ LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 Here is how much of TeX's memory you used:
  5473 strings out of 493014
  80709 string characters out of 6133351
- 161304 words of memory out of 5000000
+ 161404 words of memory out of 5000000
  8775 multiletter control sequences out of 15000+600000
  13905 words of font info for 53 fonts, out of 8000000 for 9000
  1302 hyphenation exceptions out of 8191
- 42i,13n,39p,534b,1914s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 42i,13n,39p,679b,1909s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts
 /cm/cmbx10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/
 cm/cmbx6.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm
@@ -468,19 +471,21 @@ cm/cmbx6.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm
 mcsc10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/c
 mex10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cm
 mi10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmm
-i8.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10
-.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pf
-b></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb><
-/usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></
-usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></us
-r/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/
-local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/l
-ocal/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmti9.pfb></usr/loc
-al/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on A1_Carlos_GonzalezOliver.pdf (5 pages, 355501 bytes).
+i6.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8
+.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.p
+fb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb>
+</usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></u
+sr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></us
+r/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/
+local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/lo
+cal/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/loc
+al/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmti9.pfb></usr/local
+/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/
+texlive/2016/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on A1_Carlos_GonzalezOliver.pdf (6 pages, 369562 bytes).
 PDF statistics:
- 624 PDF objects out of 1000 (max. 8388607)
- 126 compressed objects within 2 object streams
+ 634 PDF objects out of 1000 (max. 8388607)
+ 134 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  36 words of extra memory for PDF output out of 10000 (max. 10000000)
 

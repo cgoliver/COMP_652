@@ -192,7 +192,7 @@ l(\vek{w}) = \sum_{i}^{m} \log \sigma(y_i\vek{w^T}\vek{x}) - \frac{\lambda}{2}\v
 \text{Where}\quad l(\vek{w}, \vek{\alpha}) = \sum_{i}^{m} \alpha_{i}y_{i}\vek{w^Tx_i} - H(\alpha_i) - \frac{\lambda}{2}\vek{w^Tw}
 \end{equation}
 
-We can now write the problem as
+We can now write the problem as a minimization problem over $\vek{\alpha}$
 
 \begin{equation}
 \min_{\alpha}\max_{\vek{w}} l(\vek{w}, \vek{\alpha})
@@ -201,14 +201,45 @@ We can now write the problem as
 Taking the derivative of $l(\vek{w}, \alpha)$ with respect to $\vek{w}$ and setting to zero we get an expression for $\vek{w}$
 
 \begin{equation}
-\vek{w} = -\lambda\sum_{i}^{m}\alpha_{i}y_{i}\vek{x_i}
+\vek{w(\alpha)} = -\lambda\sum_{i}^{m}\alpha_{i}y_{i}\vek{x_i}
 \end{equation}
 
-Which we can plug into the original $l(\vek{w}, \vek{\alpha}$ and now optimize with respect to $\alpha$ to obtain
+Which we can plug into the original $l(\vek{w}, \vek{\alpha})$ and now optimize with respect to $\alpha$ to obtain
 
 \begin{equation}
-J(\alpha) = \frac{1}{2\lambda}\sum_{i,j}^{m,n}\alpha_{i}\alpha_{j}y_{i}y_{j}\vek{x_{j}^{T}x_{i}} - \sum_{i}^{m}H(\alpha_i)
+J(\vek{\alpha}) = \frac{1}{2\lambda}\sum_{i,j}^{m,n}\alpha_{i}\alpha_{j}y_{i}y_{j}\vek{x_{j}^{T}\cdot x_{i}} - \sum_{i}^{m}H(\alpha_i)
 \end{equation}
+
+This is the dual view of logistic regression, where the objective is expressed in terms of weighted dot products between input instances and not in terms of weight vector $\vek{w}$. In this form, we can apply any valid kernel to the dot product $\vek{x_i^T\cdot x_j}$ as $K(\vek{x_i, x_j)}$. It is important to note that $\vek{\alpha} \in \mathbb{R}^m$ where $m$ is the number of input instances, and $\vek{w} \in \mathbb{R}^n$ where $n$ is the number of features. When using kernel methods $n$ can grow exponentially, making the dual form more computationally tractable when the number of instances is low compared to the number of features. 
+
+In order to solve for the optimal $\vek{\alpha}$ Minka proposes to use coordinate wise Newton method instead of Newton's method to avoid inverting the Hessian. 
+
+\begin{equation}
+g_i = \frac{dJ(\vek{\alpha})}{d\alpha_i} = y_i\vek{w(\alpha)}^T x_i + \log \bigg(\frac{\alpha}{1-\alpha_i}\bigg)
+\end{equation}
+
+Using the first derivative we can iteratively step in the direction of the gradient over each $\alpha_i$.
+
+\begin{equation}
+\alpha_i^{new} = \alpha_i - \frac{g_i}{\lambda^{-1}\vek{x_i}^T\vek{x_i} + \frac{1}{\alpha_i(1-\alpha_i)}}
+\end{equation}
+
+Having obtained the vector $\vek{\alpha}$ through this procedure, we can make predictions using the original logistic model with a kernel.
+
+\begin{equation}
+P(Y=1 \vert x, \alpha) = \sigma\bigg(\sum_i^{m} \alpha_i K(\vek{x}, \vek{x_i})\bigg)
+\end{equation}
+
+
+\subsection{Q2 (b): Implementation of kernelized logistic regression}
+
+
+\subsection{Q2 (c): Kernelized logistic regression vs. non-kernel logistic regression results}
+
+
+\subsection{Q2 (d): Advantages and disadvantages of kernelized logistic regression}
+
+\subsection{Q3: (a) }
 
 \bibliographystyle{unsrt}
 \bibliography{bibliography}
