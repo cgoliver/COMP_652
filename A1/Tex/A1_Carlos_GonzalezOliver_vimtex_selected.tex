@@ -1,0 +1,25 @@
+\documentclass[11pt]{amsart}
+\usepackage{geometry}                % See geometry.pdf to learn the layout options. There are lots.
+\geometry{letterpaper}                   % ... or a4paper or a5paper or ... 
+%\geometry{landscape}                % Activate for for rotated page geometry
+%\usepackage[parfill]{parskip}    % Activate to begin paragraphs with an empty line rather than an indent
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{amssymb}
+\usepackage{epstopdf}
+
+\graphicspath{{../Figures/}}
+
+\DeclareGraphicsRule{.tif}{png}{.png}{`convert #1 `dirname #1`/`basename #1 .tif`.png}
+
+\newcommand{\vek}[1]{\mathbf{#1}}
+
+\title{COMP 652: Assignment 1}
+\author{Carlos G. Oliver \\ 260425853}
+\date{\today}                                           % Activate to display a given date or no date
+
+\begin{document}
+	\centering
+	\includegraphics[width=0.45\textwidth]{all_sigmas.pdf}
+\end{document}
