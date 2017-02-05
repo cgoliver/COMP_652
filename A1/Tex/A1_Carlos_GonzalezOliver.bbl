@@ -5,4 +5,9 @@ Thomas~P Minka.
 \newblock A comparison of numerical optimizers for logistic regression.
 \newblock {\em Unpublished draft}, 2003.
 
+\bibitem{bishop2006pattern}
+Christopher~M Bishop.
+\newblock Pattern recognition.
+\newblock {\em Machine Learning}, 128:1--58, 2006.
+
 \end{thebibliography}

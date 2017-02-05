@@ -1,4 +1,5 @@
 \documentclass[11pt]{amsart}
+\usepackage{amsmath}
 \usepackage{geometry}                % See geometry.pdf to learn the layout options. There are lots.
 \geometry{letterpaper}                   % ... or a4paper or a5paper or ... 
 %\geometry{landscape}                % Activate for for rotated page geometry
@@ -243,9 +244,7 @@ P(Y=1 \vert x, \alpha) = \sigma\bigg(\sum_i^{m} \alpha_i K(\vek{x}, \vek{x_i})\b
 
 {\it Statement:} $K(\vek{x}, \vek{z}) = aK_1(\vek{x}, \vek{z}) + bK_{2}(\vek{x}, \vek{z})$ is a kernel given that $K_1$ and $K_2$ are kernels and $a,b \in \mathbb{R}$ and $a, b > 0$.
 
-
 \begin{proof}
-
 
 If $K_1$ and $K_2$ are kernels then we can write them as:
 
@@ -287,7 +286,8 @@ Which reduces to
 \begin{equation}
 K(\vek{x}, \vek{z}) = \phi^{a}(\vek{z})^T \cdot \phi^{b}(\vek{z})
 \end{equation}
-\end{proof}
+
+\end{proof} 
 
 \subsection{Q3 (b) Kernels}
 
@@ -295,10 +295,22 @@ K(\vek{x}, \vek{z}) = \phi^{a}(\vek{z})^T \cdot \phi^{b}(\vek{z})
 
 \begin{proof}
 
+This proof is based on the proof for the product of kernels in the Bishop textbook Ch. 6. ~\cite{bishop2006pattern}.
+
 We can expand each kernel into dot products of their respective feature vectors $\phi^{1}$ and $\phi^{2}$
 
+\begin{equation} 
+\begin{split}
+K(\vek{x}, \vek{z}) & =  (\phi^1(\vek{x})^T \cdot \phi^1(\vek{z}))(\phi^2(\vek{x})^T \cdot \phi^2(\vek{z}))\\
+ & = \sum_{i,j} \phi_i^1(\vek{x})\phi_j^2(\vek{x}) \phi_i^1(\vek{z})\phi_j^2(\vek{z})
+\end{split}
+\label{eq:kern}
+\end{equation}
+
+To show that this is a kernel, we need to write it as the dot product of two feature mappings. We define a new feature map $\phi^{'}_{i,j}(\vek{x}) = \phi^{1}_i(\vek{x}) \phi^2_j(\vek{x})$ that yields a feature for each pair $i$, $j$ in $\vek{x}$. We now plug this expression back in to (\ref{eq:kern}) to obtain:
+
 \begin{equation}
-K(\vek{x}, \vek{z}) = \phi^1(\vek{x}) \cdot \phi^2(\vek{z})
+K(\vek{x}, \vek{z}) = \phi^{'}(\vek{x})\phi^{'}(\vek{z})
 \end{equation}
 
 \end{proof}
