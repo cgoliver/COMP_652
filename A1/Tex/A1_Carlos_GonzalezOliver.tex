@@ -216,7 +216,7 @@ This is the dual view of logistic regression, where the objective is expressed i
 In order to solve for the optimal $\vek{\alpha}$ Minka proposes to use coordinate wise Newton method instead of Newton's method to avoid inverting the Hessian. 
 
 \begin{equation}
-g_i = \frac{dJ(\vek{\alpha})}{d\alpha_i} = y_i\vek{w(\alpha)}^T x_i + \log \bigg(\frac{\alpha}{1-\alpha_i}\bigg)
+g_i = \frac{dJ(\vek{\alpha})}{d\alpha_i} = y_i\vek{w(\alpha)}^T \vek{x_i} + \log \bigg(\frac{\alpha_i}{1-\alpha_i}\bigg)
 \end{equation}
 
 Using the first derivative we can iteratively step in the direction of the gradient over each $\alpha_i$.
@@ -234,6 +234,7 @@ P(Y=1 \vert x, \alpha) = \sigma\bigg(\sum_i^{m} \alpha_i K(\vek{x}, \vek{x_i})\b
 
 \subsection{Q2 (b): Implementation of kernelized logistic regression}
 
+Please see the \texttt{Python} script \texttt{q2.py} for a full implementation of this method.
 
 \subsection{Q2 (c): Kernelized logistic regression vs. non-kernel logistic regression results}
 
