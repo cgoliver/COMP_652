@@ -86,7 +86,7 @@ In principle, a larger $\sigma$ should have an effect on the variance and bias o
 
 \subsection{Q1 (g): Basis function and regularization}
 
-Now we add in all the basis functions for each values of $\mu$ and $\sigma$ and perform logistic regression on this expanded feature space {\bf Fig. ~\ref{fig:q1g}}. We note that although cross entropy appears to also have decreased from the original input space, we notice that stronger regularization is instead producing higher cross entropy. 
+Now we add in all the basis functions for each values of $\mu$ and $\sigma$ and perform logistic regression on this expanded feature space {\bf Fig. ~\ref{fig:q1g}}. We note that although cross entropy appears to also have decreased from the original input space, we notice that stronger regularization is instead producing higher cross entropy. Again, we are able to observe the decrease in the L2 norm of weight vectors across all $\sigma$ basis functions {\bf Fig. ~\ref{fig:q1f_sigmanorms}}.
 
 \begin{figure}[h]
 	\centering
@@ -104,7 +104,7 @@ Now we add in all the basis functions for each values of $\mu$ and $\sigma$ and 
 	\centering
 	\includegraphics[width=0.45\textwidth]{all_sigma_norms.pdf}
 	\caption{Full feature mapping $\sigma$ L2 norms}
-	\label{fig:q1f}
+	\label{fig:q1f_sigmanorms}
 \end{figure}
 
 \subsection{Q1 (h): Gaussian basis function capturing relationship between inputs}
@@ -147,6 +147,7 @@ We can iterate over all possible values of $k$ and keep the best performing mode
 	\Return $bestModel$
 
 \end{algorithm}
+
 \subsection{Q1 (j): Convergence of algorithm}
 
 We can expect this algorithm to converge to a global minimum with a proper optimization scheme, as the parametrization of logistic regression remains untouched and we can still used gradient based methods to solve the convex problem. The K-means procedure is simply a method for obtaining a feature mapping that is adaptive to the data and is an instance of expectation maximization algorithms.
@@ -255,6 +256,10 @@ Please see the \texttt{Python} script \texttt{q2.py} for a full implementation o
 
 \subsection{Q2 (c): Kernelized logistic regression vs. non-kernel logistic regression results}
 
+I am not including results for the performance of my implementation of kernelized logistic regression as it is clear that something is not working correctly (the full code is regardless, still included in the \texttt{Src} directory). All accuracies irrespective of test or training set are around $0.3$ throughout k-fold cross validation (data not shown, see \texttt{Data} folder for data files). With more time I will continue working to fix any errors there may be in the code. However, it is also possible that the method for solving for the $\vek{\alpha}$ using the coordinate ascent I implemented is not converging adequately. I tried updating $\vek{\alpha}$ a total of 10 and 25 times with no significant increase in performance. So it is possible that many more updates are required, however this was beginning to take up a significant amount of computation time. The author in ~\cite{minka2003comparison} proposes a prioritized update scheme that might help the algorithm converge faster. 
+
+Assuming the implementation had worked as expected, I can speculate on the performance as a function of the width of the kernel. Certainly a higher degree polynomial kernel will be more prone to overfitting which would become apparent in the increased performance on the training set as compared with the test set. The degree at which this would occur would have to be determined by cross validation. Such methods are especially well suited or the kind of dataset presented in this assignment where the feature space is much larger than the number of observations.
+
 \begin{table}[h!]
 \centering
 \begin{tabular}{lll}
@@ -269,8 +274,20 @@ k-fold & Train & Test  \\ \hline
 \label{fig:q2c_reg}
 \end{table}
 
-\subsection{Q2 (d): Advantages and disadvantages of kernelized logistic regression}
+\subsection{Q2 (d): Advantages and disadvantages of kernelized logistic regression (KLR)}
+Again, since I was unable to produce interpretable data for KLR, these  responses are theoretical.
 
+{\bf Advantages:}
+
+\begin{itemize}
+	\item The addition of kernels allows for a priori field knowledge to be coded into the models and produce more accurate models.
+	\item Non-linear patterns can be modelled at relatively low computational costs
+\end{itemize}
+
+{\bf Disadvantages:}
+	\begin{itemize}
+	\item The computational cost associated with kernel methods scales with input size, in this example input size was quite low so computation was not very expensive. However, already with 25 updates on $\alpha$ the slowdown was noticeable. Many data sets might include much larger data instances and computation will be much more costly.
+	\end{itemize}
 \subsection{Q3: (a) Kernels}
 
 {\it Statement:} $K(\vek{x}, \vek{z}) = aK_1(\vek{x}, \vek{z}) + bK_{2}(\vek{x}, \vek{z})$ is a kernel given that $K_1$ and $K_2$ are kernels and $a,b \in \mathbb{R}$ and $a, b > 0$.

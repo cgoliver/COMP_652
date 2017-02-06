@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.5.22)  6 FEB 2017 00:30
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.5.22)  6 FEB 2017 00:58
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -294,11 +294,7 @@ subscribe by emailing sympa@lirmm.fr with 'subscribe <list> <firstname name>'
 \c@algocf=\count109
 \algocf@algoframe=\box35
 \algocf@algobox=\box36
-) (./A1_Carlos_GonzalezOliver.aux
-
-LaTeX Warning: Label `fig:q1f' multiply defined.
-
-)
+) (./A1_Carlos_GonzalezOliver.aux)
 \openout1 = `A1_Carlos_GonzalezOliver.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 25.
@@ -314,7 +310,8 @@ LaTeX Font Info:    ... okay on input line 25.
 LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 25.
 LaTeX Font Info:    ... okay on input line 25.
 LaTeX Font Info:    Try loading font information for U+msa on input line 25.
- (/usr/local/texlive/2016/texmf-dist/tex/latex/amsfonts/umsa.fd
+
+(/usr/local/texlive/2016/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
 LaTeX Font Info:    Try loading font information for U+msb on input line 25.
@@ -457,7 +454,7 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 pdfTeX warning: /Library/TeX/texbin/pdflatex (file ../Figures/all_sigmas.pdf): 
 PDF inclusion: multiple pdfs with page group included in a single page
 >]
-Underfull \vbox (badness 6412) has occurred while \output is active []
+Underfull \vbox (badness 4072) has occurred while \output is active []
 
  [4 <../Figures/all_sigmas_norm.pdf> <../Figures/all_sigma_norms.pdf
 
@@ -467,21 +464,21 @@ df): PDF inclusion: multiple pdfs with page group included in a single page
 File: ../Figures/H_x.pdf Graphic file (type pdf)
 
 <use ../Figures/H_x.pdf>
-Package pdftex.def Info: ../Figures/H_x.pdf used on input line 186.
+Package pdftex.def Info: ../Figures/H_x.pdf used on input line 187.
 (pdftex.def)             Requested size: 193.50076pt x 145.12895pt.
 
 <../Figures/bounds.pdf, id=616, 462.52798pt x 346.89601pt>
 File: ../Figures/bounds.pdf Graphic file (type pdf)
 
 <use ../Figures/bounds.pdf>
-Package pdftex.def Info: ../Figures/bounds.pdf used on input line 199.
+Package pdftex.def Info: ../Figures/bounds.pdf used on input line 200.
 (pdftex.def)             Requested size: 193.50076pt x 145.12895pt.
  [6 <../Figures/H_x.pdf> <../Figures/bounds.pdf
 
 pdfTeX warning: /Library/TeX/texbin/pdflatex (file ../Figures/bounds.pdf): PDF 
 inclusion: multiple pdfs with page group included in a single page
->] [7]
-Overfull \hbox (65.8901pt too wide) detected at line 313
+>] [7] [8]
+Overfull \hbox (65.8901pt too wide) detected at line 330
 \OML/cmm/m/it/10.95 ^^^\OT1/cmr/m/n/10.95 (\OT1/cmr/bx/n/10.95 x\OT1/cmr/m/n/10
 .95 )[] \OMS/cmsy/m/n/10.95 ^^A \OML/cmm/m/it/10.95 ^^^\OT1/cmr/m/n/10.95 (\OT1
 /cmr/bx/n/10.95 z\OT1/cmr/m/n/10.95 ) = ([]\OML/cmm/m/it/10.95 ^^^[]\OT1/cmr/m/
@@ -497,20 +494,16 @@ mr/m/n/10.95 )[]\OML/cmm/m/it/10.95 ^^^[]\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.9
 5 x[]\OT1/cmr/m/n/10.95 ) + \OML/cmm/m/it/10.95 :::\OT1/cmr/m/n/10.95 )
  []
 
-[8] (./A1_Carlos_GonzalezOliver.bbl) [9] (./A1_Carlos_GonzalezOliver.aux)
-
-LaTeX Warning: There were multiply-defined labels.
-
- )
+[9] (./A1_Carlos_GonzalezOliver.bbl) [10] (./A1_Carlos_GonzalezOliver.aux) )
 (\end occurred inside a group at level 1)
 
 ### simple group (level 1) entered at line 1061 ({)
 ### bottom level 
 Here is how much of TeX's memory you used:
- 5499 strings out of 493014
- 81301 string characters out of 6133351
- 162474 words of memory out of 5000000
- 8798 multiletter control sequences out of 15000+600000
+ 5500 strings out of 493014
+ 81321 string characters out of 6133351
+ 162444 words of memory out of 5000000
+ 8799 multiletter control sequences out of 15000+600000
  13905 words of font info for 53 fonts, out of 8000000 for 9000
  1302 hyphenation exceptions out of 8191
  42i,15n,39p,1340b,1909s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -533,10 +526,10 @@ al/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmti9.pfb></usr/local
 /texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/
 texlive/2016/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/lo
 cal/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on A1_Carlos_GonzalezOliver.pdf (9 pages, 415863 bytes).
+Output written on A1_Carlos_GonzalezOliver.pdf (10 pages, 418883 bytes).
 PDF statistics:
- 745 PDF objects out of 1000 (max. 8388607)
- 173 compressed objects within 2 object streams
+ 748 PDF objects out of 1000 (max. 8388607)
+ 175 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  51 words of extra memory for PDF output out of 10000 (max. 10000000)
 
