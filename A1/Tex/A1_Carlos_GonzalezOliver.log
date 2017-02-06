@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.5.22)  5 FEB 2017 20:57
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.5.22)  6 FEB 2017 00:30
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -296,16 +296,7 @@ subscribe by emailing sympa@lirmm.fr with 'subscribe <list> <firstname name>'
 \algocf@algobox=\box36
 ) (./A1_Carlos_GonzalezOliver.aux
 
-LaTeX Warning: Label `fig:ranmutsnomfe_freq' multiply defined.
-
-
-LaTeX Warning: Label `sub@fig:ranmutsnomfe_freq' multiply defined.
-
-
-LaTeX Warning: Label `fig:ranmutsnomfe_freq' multiply defined.
-
-
-LaTeX Warning: Label `sub@fig:ranmutsnomfe_freq' multiply defined.
+LaTeX Warning: Label `fig:q1f' multiply defined.
 
 )
 \openout1 = `A1_Carlos_GonzalezOliver.aux'.
@@ -410,14 +401,21 @@ File: ../Figures/q1d_weights.pdf Graphic file (type pdf)
 Package pdftex.def Info: ../Figures/q1d_weights.pdf used on input line 57.
 (pdftex.def)             Requested size: 193.50076pt x 145.12895pt.
 
-<../Figures/sigmas.pdf, id=5, 462.52798pt x 346.89601pt>
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[1{/usr/local/texlive/2016/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
+<../Figures/sigmas.pdf, id=21, 462.52798pt x 346.89601pt>
 File: ../Figures/sigmas.pdf Graphic file (type pdf)
 
 <use ../Figures/sigmas.pdf>
-Package pdftex.def Info: ../Figures/sigmas.pdf used on input line 80.
+Package pdftex.def Info: ../Figures/sigmas.pdf used on input line 82.
 (pdftex.def)             Requested size: 193.50076pt x 145.12895pt.
- [1{/usr/local/texlive/2016/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] [2 <
-../Figures/q1d_crossentropy.pdf> <../Figures/q1d_accuracy.pdf
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[2 <../Figures/q1d_crossentropy.pdf> <../Figures/q1d_accuracy.pdf
 
 pdfTeX warning: /Library/TeX/texbin/pdflatex (file ../Figures/q1d_accuracy.pdf)
 : PDF inclusion: multiple pdfs with page group included in a single page
@@ -429,25 +427,61 @@ F inclusion: multiple pdfs with page group included in a single page
 
 pdfTeX warning: /Library/TeX/texbin/pdflatex (file ../Figures/q1d_weights.pdf):
  PDF inclusion: multiple pdfs with page group included in a single page
-> <../Figures/sigmas.pdf
+>] <../Figures/all_sigmas.pdf, id=473, 462.52798pt x 346.89601pt>
+File: ../Figures/all_sigmas.pdf Graphic file (type pdf)
 
-pdfTeX warning: /Library/TeX/texbin/pdflatex (file ../Figures/sigmas.pdf): PDF 
-inclusion: multiple pdfs with page group included in a single page
->] [3] <../Figures/H_x.pdf, id=512, 462.52798pt x 346.89601pt>
+<use ../Figures/all_sigmas.pdf>
+Package pdftex.def Info: ../Figures/all_sigmas.pdf used on input line 93.
+(pdftex.def)             Requested size: 193.50076pt x 145.12895pt.
+
+<../Figures/all_sigmas_norm.pdf, id=474, 462.52798pt x 346.89601pt>
+File: ../Figures/all_sigmas_norm.pdf Graphic file (type pdf)
+
+<use ../Figures/all_sigmas_norm.pdf>
+Package pdftex.def Info: ../Figures/all_sigmas_norm.pdf used on input line 99.
+(pdftex.def)             Requested size: 193.50076pt x 145.12895pt.
+
+<../Figures/all_sigma_norms.pdf, id=475, 462.52798pt x 346.89601pt>
+File: ../Figures/all_sigma_norms.pdf Graphic file (type pdf)
+
+<use ../Figures/all_sigma_norms.pdf>
+Package pdftex.def Info: ../Figures/all_sigma_norms.pdf used on input line 105.
+
+(pdftex.def)             Requested size: 193.50076pt x 145.12895pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[3 <../Figures/sigmas.pdf> <../Figures/all_sigmas.pdf
+
+pdfTeX warning: /Library/TeX/texbin/pdflatex (file ../Figures/all_sigmas.pdf): 
+PDF inclusion: multiple pdfs with page group included in a single page
+>]
+Underfull \vbox (badness 6412) has occurred while \output is active []
+
+ [4 <../Figures/all_sigmas_norm.pdf> <../Figures/all_sigma_norms.pdf
+
+pdfTeX warning: /Library/TeX/texbin/pdflatex (file ../Figures/all_sigma_norms.p
+df): PDF inclusion: multiple pdfs with page group included in a single page
+>] [5] <../Figures/H_x.pdf, id=615, 462.52798pt x 346.89601pt>
 File: ../Figures/H_x.pdf Graphic file (type pdf)
 
 <use ../Figures/H_x.pdf>
-Package pdftex.def Info: ../Figures/H_x.pdf used on input line 169.
+Package pdftex.def Info: ../Figures/H_x.pdf used on input line 186.
 (pdftex.def)             Requested size: 193.50076pt x 145.12895pt.
 
-<../Figures/bounds.pdf, id=513, 462.52798pt x 346.89601pt>
+<../Figures/bounds.pdf, id=616, 462.52798pt x 346.89601pt>
 File: ../Figures/bounds.pdf Graphic file (type pdf)
 
 <use ../Figures/bounds.pdf>
-Package pdftex.def Info: ../Figures/bounds.pdf used on input line 182.
+Package pdftex.def Info: ../Figures/bounds.pdf used on input line 199.
 (pdftex.def)             Requested size: 193.50076pt x 145.12895pt.
- [4 <../Figures/H_x.pdf>] [5 <../Figures/bounds.pdf>] [6]
-Overfull \hbox (65.8901pt too wide) detected at line 283
+ [6 <../Figures/H_x.pdf> <../Figures/bounds.pdf
+
+pdfTeX warning: /Library/TeX/texbin/pdflatex (file ../Figures/bounds.pdf): PDF 
+inclusion: multiple pdfs with page group included in a single page
+>] [7]
+Overfull \hbox (65.8901pt too wide) detected at line 313
 \OML/cmm/m/it/10.95 ^^^\OT1/cmr/m/n/10.95 (\OT1/cmr/bx/n/10.95 x\OT1/cmr/m/n/10
 .95 )[] \OMS/cmsy/m/n/10.95 ^^A \OML/cmm/m/it/10.95 ^^^\OT1/cmr/m/n/10.95 (\OT1
 /cmr/bx/n/10.95 z\OT1/cmr/m/n/10.95 ) = ([]\OML/cmm/m/it/10.95 ^^^[]\OT1/cmr/m/
@@ -463,7 +497,7 @@ mr/m/n/10.95 )[]\OML/cmm/m/it/10.95 ^^^[]\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.9
 5 x[]\OT1/cmr/m/n/10.95 ) + \OML/cmm/m/it/10.95 :::\OT1/cmr/m/n/10.95 )
  []
 
-(./A1_Carlos_GonzalezOliver.bbl) [7] (./A1_Carlos_GonzalezOliver.aux)
+[8] (./A1_Carlos_GonzalezOliver.bbl) [9] (./A1_Carlos_GonzalezOliver.aux)
 
 LaTeX Warning: There were multiply-defined labels.
 
@@ -473,13 +507,13 @@ LaTeX Warning: There were multiply-defined labels.
 ### simple group (level 1) entered at line 1061 ({)
 ### bottom level 
 Here is how much of TeX's memory you used:
- 5475 strings out of 493014
- 80737 string characters out of 6133351
- 161416 words of memory out of 5000000
- 8777 multiletter control sequences out of 15000+600000
+ 5499 strings out of 493014
+ 81301 string characters out of 6133351
+ 162474 words of memory out of 5000000
+ 8798 multiletter control sequences out of 15000+600000
  13905 words of font info for 53 fonts, out of 8000000 for 9000
  1302 hyphenation exceptions out of 8191
- 42i,15n,39p,679b,1909s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 42i,15n,39p,1340b,1909s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts
 /cm/cmbx10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/
 cm/cmbx6.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm
@@ -499,10 +533,10 @@ al/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmti9.pfb></usr/local
 /texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/
 texlive/2016/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/lo
 cal/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on A1_Carlos_GonzalezOliver.pdf (7 pages, 385745 bytes).
+Output written on A1_Carlos_GonzalezOliver.pdf (9 pages, 415863 bytes).
 PDF statistics:
- 643 PDF objects out of 1000 (max. 8388607)
- 141 compressed objects within 2 object streams
+ 745 PDF objects out of 1000 (max. 8388607)
+ 173 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
- 36 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 51 words of extra memory for PDF output out of 10000 (max. 10000000)
 

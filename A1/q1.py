@@ -20,7 +20,7 @@ x_data = np.insert(x, 0, 1, axis=1)
 
 data_split = train_test_split(x, y, test_size=0.2)
 
-lambdas = [1e-50, 0.1, 1, 10, 100, 1000]
+lambdas = [1e-50, 0.1, 1, 10, 100, 1000, 10000]
 sigmas_g = [0.1, 0.5, 1, 5, 10]
 mu = np.arange(-10, 11, 5)
 
@@ -70,6 +70,7 @@ def reg_test(X, y, param=[1e-50, 0.1, 1, 10, 100, 10000], ylabel=None,\
                 X_train, X_test, y_train, y_test = X[train], X[test], y[train], y[test]
             if reg:
                 c = 1/l
+                print(c, l)
                 clf = linear_model.LogisticRegression(penalty='l2', C=c,\
                 fit_intercept=False)
             else:
@@ -115,8 +116,8 @@ def reg_test(X, y, param=[1e-50, 0.1, 1, 10, 100, 10000], ylabel=None,\
 
     norms = {l:[np.linalg.norm(w) for w in weights[l]] for l in param}
     # get ditionary of norms for each lambda {l1: [[norm(s1), norm(s2)], [...]]}
-    norms_sigma = {l:[norms_split(w) for w in weights[l]] \
-        for l in param}
+    # norms_sigma = {l:[norms_split(w) for w in weights[l]] \
+        # for l in param}
 
     # get mean of norm for each lambda {l1: [s1, s2, s3], ...}
     sigma_norms_mean = {}
@@ -189,12 +190,8 @@ def reg_test(X, y, param=[1e-50, 0.1, 1, 10, 100, 10000], ylabel=None,\
         plt.show()
 
 if __name__ == "__main__":
-    g_lambdas = lambdas
-    g_lambdas.append(10000)
-    test_lambdas = [1, 10]
-    test_sigmas = [0.5, 1]
     X_gauss = basis(x_data)
     reg_test(x_data, y, metric="sigma_norm", ylabel="L2 Norm",\
-         title="", xlabel=r"$\log\lambda$", param=g_lambdas, basis_inp=True, \
+         title="", xlabel=r"$\log\lambda$", param=lambdas, basis_inp=True, \
             reg=True,log=True, sigmas=sigmas_g,\
                 save="Figures/all_sigma_norms.pdf")

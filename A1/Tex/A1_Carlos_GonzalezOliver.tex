@@ -34,32 +34,32 @@ J_{\vek{w}} =  -\bigg(\sum_{i=1}^{m} y_{i}\log(h(\vek{x_{i}})) + (1 - y_{i})\log
 
 \subsection{Q1 (d): Regularization}
 
-For all subsequent experiments, I present summary statistics of K-fold cross validation with shuffled input data. We compute a value of $K$ so as to have approximately a training-test split ratio of $80-20\%$. This resulted in $4$ splits. The bars one each point represent one standard deviation from the mean over the $4$ splits. 
+For all subsequent experiments, I present summary statistics of K-fold cross validation with shuffled input data. We compute a value of $K$ so as to have approximately a training-test split ratio of $80-20\%$. This resulted in $4$ splits. The bars one each point represent one standard deviation from the mean over the $4$ splits. It is important to note that for the dataset in this assignment, the parameter space (314) is much larger than the number of instances (94) so we expect our models to display high variability. And indeed this is what we see when plotting the variance seen in K-fold cross validation {\bf Fig. ~\ref{fig:1d}}. Despite the strong variability, we are still able to note key trends in the effect of regularization strength where higher $\lambda$ appears to minimize cross entropy. The effect of lambda on the weight vector can also be noted in {\bf Fig. ~\ref{fig:1dnorm}, ~\ref{fig:1dvals}} where stronger regularization reduces the norm of the weight vector (although never to zero as we are in L2 regularization) and the values of each parameters can also be seen to converge to zero as we increase regularization strength. Overall, given the high variability in the data, it will be interesting to attempt experiments with even higher regularization strength.
 
-\begin{figure}
+\begin{figure}[h!]
     \centering
     \begin{subfigure}{0.45\textwidth}
         \includegraphics[width=\textwidth]{q1d_crossentropy.pdf}
-        \caption{MFE Sampling}
+        \caption{Cross entropy error over regularization strength}
         \label{fig:rnamutsnomfe_freq}
     \end{subfigure}
     \begin{subfigure}{0.45\textwidth}
         \includegraphics[width=\textwidth]{q1d_accuracy.pdf}
-        \caption{Suboptimal Sampling}
+        \caption{Accuracy over regularization strength}
         \label{fig:ranmutsnomfe_freq}
     \end{subfigure}
     \begin{subfigure}{0.45\textwidth}
         \includegraphics[width=\textwidth]{q1d_norm.pdf}
-        \caption{Suboptimal Sampling}
-        \label{fig:ranmutsnomfe_freq}
+        \caption{Norm of weight vector over regularization strength}
+        \label{fig:1dnorm}
     \end{subfigure}
     \begin{subfigure}{0.45\textwidth}
         \includegraphics[width=\textwidth]{q1d_weights.pdf}
-        \caption{Suboptimal Sampling}
-        \label{fig:ranmutsnomfe_freq}
+        \caption{Weight vector values over regularization strength}
+        \label{fig:1dvals}
     \end{subfigure}
-        \caption{Frequency of sequence-structure pair in Boltzmann ensemble for MFE and suboptimal sampling in RNAmutants.}
-    \label{fig:freq}
+        \caption{Effect of regularization strength on logistic regression fitting}
+    \label{fig:1d}
 \end{figure}
 
 
@@ -75,25 +75,37 @@ We apply this basis with a fixed $\sigma$ chosen from the set $\{0.1, 0.5, 1, 5,
 
 \subsection{Q1 (f): Effect of $\sigma$ on regression}
 
-\begin{figure}
+In principle, a larger $\sigma$ should have an effect on the variance and bias of the model. A smaller sigma will result in strong penalties for points that are somewhat far from the center and thus increase the variance of the model to new data points. Interestingly, we note a strong increase in accuracy over all values of $\sigma$ see {\bf Fig. ~\ref{fig:q1f}}. This is likely due to the fact that the basis function is allowing us to better capture the complexity in the data, and indeed we see that the training accuracy reaches 100\%.
+
+\begin{figure}[h!]
 	\centering
 	\includegraphics[width=0.45\textwidth]{sigmas.pdf}
+	\caption{Fixed mean basis regression}
+	\label{fig:q1f}
 \end{figure}
 
 \subsection{Q1 (g): Basis function and regularization}
 
-%\begin{figure}
-%	\centering
-%	\begin{subfigure}
-%		\includegraphics[width=0.45\textwidth]{all_sigmas.pdf}
-%		\caption{Average cross entropy}
-%	\end{subfigure}
-%
-%	\begin{subfigure}
-%		\includegraphics[width=0.45\textwidth]{all_sigmas_norm.pdf}
-%		\caption{L2 norm of weight vector}
-%	\end{subfigure}
-%\end{figure}
+Now we add in all the basis functions for each values of $\mu$ and $\sigma$ and perform logistic regression on this expanded feature space {\bf Fig. ~\ref{fig:q1g}}. We note that although cross entropy appears to also have decreased from the original input space, we notice that stronger regularization is instead producing higher cross entropy. 
+
+\begin{figure}[h]
+	\centering
+		\includegraphics[width=0.45\textwidth]{all_sigmas.pdf}
+		\caption{Average cross entropy with all basis functions}
+		\label{fig:q1g}
+\end{figure}
+
+\begin{figure}
+		\includegraphics[width=0.45\textwidth]{all_sigmas_norm.pdf}
+		\caption{L2 norm of weight vector}
+\end{figure}
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.45\textwidth]{all_sigma_norms.pdf}
+	\caption{Full feature mapping $\sigma$ L2 norms}
+	\label{fig:q1f}
+\end{figure}
 
 \subsection{Q1 (h): Gaussian basis function capturing relationship between inputs}
 
@@ -107,6 +119,8 @@ Previously, we have been externally fixing the centers $\mu_i$ of the Gaussian b
 \phi(\vek{x}) = exp\bigg(\frac{\norm{\vek{x} - \mathbf{\mu}}_2^2}{2\sigma_k^2}\bigg)
 \end{equation}
 
+We can iterate over all possible values of $k$ and keep the best performing model. 
+
 \IncMargin{1em}
 \begin{algorithm}[H]
 	\SetKwInOut{Input}{input}\SetKwInOut{Output}{output}
@@ -118,21 +132,24 @@ Previously, we have been externally fixing the centers $\mu_i$ of the Gaussian b
 	\Input{X, $\lambda$, $\vek{y}$, [$\sigma_0$, ..., $\sigma_j$]}
 	\Output{$\vek{\omega}$}
 	
-	$currentTestErr \leftarrow \infty$\;
-	$prevTestErr \leftarrow 0$\;
-	$bestMode \leftarrow Null$\;
-	\While{$currentTestErr > prevTestErr$}{
+	$minTestErr = \infty$\;
+	$bestModel \leftarrow Null$\;
+	\For{$k$ in $K$}{
 		$\mu_1, ..., \mu_j \leftarrow$ \KMeans{X, k}\; 
 		$X^{'} \leftarrow$ \GaussianBasis{$X, [\mu_1, ..., \mu_k]$}\;
 		$model, \vek{w} \leftarrow$ \LogisticRegression{$X^{'}, y, \lambda$}\;
-		$currentTestErr \leftarrow \accuracy{model, X, y}$;
+		$currentTestErr \leftarrow \accuracy{model, X, y}$\;
+		\uIf{$currentTestErr < minTestErr$}{
+			$bestModel \leftarrow model$
+		}
+
 	}
-	
+	\Return $bestModel$
 
 \end{algorithm}
 \subsection{Q1 (j): Convergence of algorithm}
 
-
+We can expect this algorithm to converge to a global minimum with a proper optimization scheme, as the parametrization of logistic regression remains untouched and we can still used gradient based methods to solve the convex problem. The K-means procedure is simply a method for obtaining a feature mapping that is adaptive to the data and is an instance of expectation maximization algorithms.
 
 \subsection{Q2 (a): Dual view of logistic regression}
 
@@ -238,6 +255,19 @@ Please see the \texttt{Python} script \texttt{q2.py} for a full implementation o
 
 \subsection{Q2 (c): Kernelized logistic regression vs. non-kernel logistic regression results}
 
+\begin{table}[h!]
+\centering
+\begin{tabular}{lll}
+\hline
+k-fold & Train & Test  \\ \hline
+1      & 0.680 & 0.5   \\ \hline
+2      & 0.691 & 0.625 \\ \hline
+3      & 0.747 & 0.645 \\ \hline
+4      & 0.715 & 0.677 \\ \hline
+\end{tabular}
+\caption{Regular Logistic Regression Accuracy $\lambda=1$}
+\label{fig:q2c_reg}
+\end{table}
 
 \subsection{Q2 (d): Advantages and disadvantages of kernelized logistic regression}
 
