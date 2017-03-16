@@ -1,0 +1,128 @@
+\documentclass[11pt]{amsart}
+\usepackage{amsmath}
+\usepackage{geometry}                % See geometry.pdf to learn the layout options. There are lots.
+\geometry{letterpaper}                   % ... or a4paper or a5paper or ... 
+%\geometry{landscape}                % Activate for for rotated page geometry
+%\usepackage[parfill]{parskip}    % Activate to begin paragraphs with an empty line rather than an indent
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{amssymb}
+\usepackage{epstopdf}
+\usepackage[]{algorithm2e}
+
+\title{COMP 652: Assignment 2}
+\author{Carlos G. Oliver (ID: 260425853)}
+\date{\today}                                           % Activate to display a given date or no date
+
+
+\newcommand\independent{\protect\mathpalette{\protect\independenT}{\perp}}
+\DeclareMathOperator{\E}{\mathbb{E}}
+\def\independenT#1#2{\mathrel{\rlap{$#1#2$}\mkern2mu{#1#2}}}
+
+\begin{document}
+\maketitle
+\section{Q1: Properties of entropy and mutual information, and Bayes net construction}
+\subsection{(a)} Prove that $H(X) \geq H(X \vert Y)$, with equality achieved when $X$ and $Y$ are independent.
+
+\begin{proof}
+
+We begin with the following relation:
+
+\begin{equation}
+H(X) = H(X \vert Y) + I(X ; Y)
+\end{equation}
+
+Where $I(X;Y)$ is the mutual information between the two random variables $X$ and $Y$. This quantity represents the amount of information that can be obtained about one random variable, knowing the other. We can arrive at the above equation from the formal definition of mutual information:
+
+\begin{equation}
+\begin{aligned}
+I(X;Y) & = \sum_{x,y}p(x,y) \log\bigg(\frac{p(x,y)}{p(x)p(y)}\bigg) \\
+	& = \sum_{x,y}p(x,y) \bigg[\log \bigg(\frac{p(x,y)}{p(y)} \bigg) - \log p(x) \bigg] \\
+	& = \sum_{x,y}p(x, y) \log\bigg(\frac{p(x,y)}{p(y)}\bigg) - \sum_{x,y}p(x, y) \log p(x) \\
+	& = \sum_{x,y}p(y) p(x \vert y) \log p(x \vert y) - \sum_{x,y}p(x, y) \log p(x) && \text{using:}  p(x,y) = p(x \vert y)p(y) = p(y \vert x) p(x) \\
+	& = \sum_{y} p(y) \sum_{x} p(x \vert y) - \sum_{x} \log p(x) \sum_{y} p(x,y) && \text{breaking up summations} \\
+	&= - \sum_{y} p(y) H(X \vert Y=y) - \sum_{x} \log p(x) \sum_{y} p(x,y) && \text{by definition of entropy} \\
+	&= - H(X \vert Y) - \sum_{x}p(x) \log p(x) && \text{marginal probability} \\
+	&= - H(X \vert Y) - H(X) \\
+	&= H(X) - H(X \vert Y)
+\end{aligned}
+\label{eq:mutual}
+\end{equation}
+
+In order to prove the original statement, it suffices to show that $I(X;Y) \geq 0$ with equality when  $X \independent Y$.
+
+We need a few definitions in order to show this. First, we define the KL-divergence between two probability distributions $P$ and $Q$ as:
+
+\begin{equation}
+D_{KL} = \sum_{x} P(x) \log \frac{P(x)}{Q(x)}
+\end{equation}
+
+Which is related to the mutual information of two random variables $X$ and $Y$ as:
+
+\begin{equation}
+I(X;Y) = D_{KL}\big(P(X,Y) \vert \vert P(X)P(Y)\big) = \sum_{x,y} p(x,y) \log \bigg( \frac{p(x,y)}{p(x)p(y)} \bigg)
+\label{eq:kl-mutual}
+\end{equation}
+
+We will use Jensen's inequality which applies to the expected value of convex functions of random variables, such that if $f(x)$ is a convex function, then $\E [f(x)] \geq f(\E [x]))$. By letting the negative logarithm be the convex function, we can show that $I(X;Y) \geq 0$.
+
+\begin{equation}
+\begin{aligned}
+-\sum_{x,y} p(x,y) \log(\frac{p(x)p(y)}{p(x,y)} & \geq -\log \bigg( \sum_{x,y} p(x,y) \frac{p(x)p(y)}{p(x,y)} \bigg) \\
+								   & \geq -\log \bigg ( \sum_{x,y} p(x)p(y) \bigg) \\
+								   & \geq -\log \bigg( \sum_{x} p(x) \sum_{y} p(y) \bigg) \\
+								   & = 0 && \text{probabilities sum to 1}
+\label{eq:mutual-pos}
+\end{aligned}
+\end{equation}
+
+It is easy to see that for the case where $X \independent Y$ we have $p(x,y) = p(x)p(y)$ so 
+
+\begin{equation}
+\sum_{x,y} p(x,y) \log\bigg(\frac{p(x,y)}{p(x)p(y)}\bigg) = \sum_{x,y} p(x,y) \log\bigg(\frac{p(x)p(y)}{p(x)p(y)}\bigg) = 0
+\end{equation}
+
+\end{proof}
+
+
+\subsection{(b)}
+
+Given the relation between KL divergence and mutual information in Equation ~\ref{eq:kl-mutual} we showed in Equation ~\ref{eq:mutual-pos} that this quantity is $D_{KL} \geq 0$. 
+
+\subsection{(c)}
+
+Show that $I(X;Y) = H(X) + H(Y) - H(X,Y)$, also known as the chain rule for conditional entropy.
+
+\begin{proof}
+
+We first show that $H(X \vert Y) = H(X,Y) - H(X)$.
+
+\begin{equation}
+\begin{aligned}
+H(X\vert Y) &= \sum_{x,y}p(x,y) \log \bigg( \frac{p(y)}{p(x,y)} \bigg) \\
+		 &= \sum_{x,y} p(x,y) \bigg[\log p(y) - \log p(x,y) \bigg] \\
+		 &= -\sum_{x,y}p(x,y) \log p(x,y) + \sum_{x,y} p(x,y) \log p(y) \\
+		 &= H(X,Y) + \sum_{x,y} p(x,y) \log p(y) && \text{definition of entropy}\\
+		 &= -H(X,Y) - H(X) 				      &&\text{marginalize out x as before}
+\end{aligned}
+\end{equation}
+
+From this we obtain the expression $H(X,Y) = H(X) - H(X \vert Y)$ and substitute it into the statement to prove.
+
+\begin{equation}
+\begin{aligned}
+I(X;Y) = H(X) + H(Y) - H(X,Y) = H(Y) - H(X \vert Y)
+\end{aligned}
+\end{equation}
+
+Which we proved from the definition of $I(X;Y)$ in Equation ~\ref{eq:mutual} above.
+
+\end{proof}
+
+\subsection{(d)}
+
+Shown in Equation ~\ref{eq:mutual-pos}
+
+
+\end{document}  
