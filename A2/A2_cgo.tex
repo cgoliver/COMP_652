@@ -19,6 +19,7 @@
 \newcommand\independent{\protect\mathpalette{\protect\independenT}{\perp}}
 \DeclareMathOperator{\E}{\mathbb{E}}
 \def\independenT#1#2{\mathrel{\rlap{$#1#2$}\mkern2mu{#1#2}}}
+\newcommand{\vek}[1]{\mathbf{#1}}
 
 \begin{document}
 \maketitle
@@ -90,6 +91,17 @@ It is easy to see that for the case where $X \independent Y$ we have $p(x,y) = p
 
 Given the relation between KL divergence and mutual information in Equation ~\ref{eq:kl-mutual} we showed in Equation ~\ref{eq:mutual-pos} that this quantity is $D_{KL} \geq 0$. 
 
+The KL divergence is not a symmetric quantity. Let $P(x) = 1$ for all values of $x$ and let $Q(x) = 0	$ for all values of x. 
+
+\begin{equation}
+D_{KL}(P, Q) = \sum_{x}0 \log \frac{0}{1} = 0
+\end{equation}
+
+\begin{equation}
+D_{KL}(Q,P) = \sum_{x}1 \log \frac{1}{0} = \infty
+\end{equation}
+
+
 \subsection{(c)}
 
 Show that $I(X;Y) = H(X) + H(Y) - H(X,Y)$, also known as the chain rule for conditional entropy.
@@ -123,6 +135,28 @@ Which we proved from the definition of $I(X;Y)$ in Equation ~\ref{eq:mutual} abo
 \subsection{(d)}
 
 Shown in Equation ~\ref{eq:mutual-pos}
+
+
+\subsection{(e)}
+
+Let $\mathcal{X}_{i}$ represent the possible values of the random variable $x_i$ and $\mathcal{X}_{\pi_{i}}$ represent the possible values of the set of parents $x_{\pi_{i}}$.
+
+\begin{equation}
+\begin{aligned}
+L(G \vert D) & = \prod_{j=1}^m p(\vek{x_j} \vert G) && \text{by definition of likelihood} \\
+		   & = \prod_{j=1}^m \prod_{i=1}^n p(\vek{x_{j,i}} \vert G) && \text{by graph factorization} \\
+		   & = \sum_{j=1}^{m}\sum_{i=1}^n \log p(x_{j,i} \vert G) \\
+		   & = \sum_{j=1}^{m}\sum_{i=1}^n \log p(x_{j,i} \vert x_{\pi_{i}}) \\
+		   & = \sum_{i=1}^{n}\sum_{j=1}^m \log p(x_{j,i} \vert x_{\pi_{i}}) && \text{sum over $m$ produces empirical distribution} \\
+		   & = \sum_{i=1}^{n} \bigg[ \sum_{\mathcal{X}_{i}} \sum_{\mathcal{X}_{\pi_i}} N(x_{i}, x_{\pi_i}) \log (\hat{p} (x_{i} \vert x_{\pi_i}))\bigg] \\
+		   &=  m \sum_{i=1}^{n} \bigg[ \sum_{\mathcal{X}_{i}} \sum_{\mathcal{X}_{\pi_i}} \frac{N(x_{i}, x_{\pi_i})}{m} \log (\hat{p} (x_{i} \vert x_{\pi_i}))\bigg]  && \text{multiply by $\frac{m}{m}$}\\	
+		   &=  m \sum_{i=1}^{n} \bigg[ \sum_{\mathcal{X}_{i}} \sum_{\mathcal{X}_{\pi_i}} \frac{N(x_{i}, x_{\pi_i})}{m} \log \frac{\hat{p} (x_{i}, x_{\pi_i})}{\hat{p}(x_{\pi_i})}\bigg]  && \text{definition of empirircal dist.} \\
+		   &=  m \sum_{i=1}^{n} \bigg[ \sum_{\mathcal{X}_{i}} \sum_{\mathcal{X}_{\pi_i}} \frac{N(x_{i}, x_{\pi_i})}{m} \log \frac{\hat{p} (x_{i}, x_{\pi_i})}{\hat{p}(x_{\pi_i})} \frac{\hat{p}(x_{i})}{\hat{p}(x_{i})}\bigg]  && \text{}  \\
+		   &=  m \sum_{i=1}^{n} \bigg[ \sum_{\mathcal{X}_{i}} \sum_{\mathcal{X}_{\pi_i}} \hat{p}(x_i, x_{\pi_i}) \log \frac{\hat{p} (x_{i}, x_{\pi_i})}{\hat{p}(x_{\pi_i})} \frac{\hat{p}(x_{i})}{\hat{p}(x_{i})}\bigg]  && \text{frequencies of joint divided by $m$ is joint.}   \\
+		   &=  m \sum_{i=1}^{n} \bigg[ \sum_{\mathcal{X}_{i}} \sum_{\mathcal{X}_{\pi_i}} \hat{p}(x_i, x_{\pi_i}) \bigg\{ \log \frac{\hat{p} (x_{i}, x_{\pi_i})}{\hat{p}(x_{\pi_i}) \hat{p}(x_{i})} + \log {\hat{p}(x_{i})} \bigg\} \bigg] && \text{break up log of products} \\
+		   &= m \sum_{i=1} MI_{\hat{p}}(x_i, x_{\pi_i}) - m \sum_{i=1} H_{\hat{p}}(x_i) && \text{by definition of MI and entropy}
+\end{aligned}
+\end{equation}
 
 
 \end{document}  
