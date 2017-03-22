@@ -10,6 +10,10 @@
 \usepackage{amssymb}
 \usepackage{epstopdf}
 \usepackage[]{algorithm2e}
+\usepackage{tikz}
+\usetikzlibrary{positioning}
+\tikzset{main node/.style={circle,fill=blue!20,draw,minimum size=1cm,inner sep=0pt},
+            }
 
 \title{COMP 652: Assignment 2}
 \author{Carlos G. Oliver (ID: 260425853)}
@@ -232,6 +236,83 @@ w_{ij}^{new} = w_{ij} + \alpha X_{i} X_{j} \sigma(-X_{i} \sum_{\pi_i} w_{ij} X_{
 \end{equation}
 
 We can generate samples for $P(X = \vek{x}  \vert V = \vek{v})$ using Gibbs sampling, by fixing the visible nodes to a certain value and sampling for the hidden nodes. 
+
+
+\section{Q3: Markov Random Fields}
+
+\subsection{(a)}
+
+\begin{figure}
+
+\begin{tikzpicture}[
+  vertex/.style={draw,circle,minimum size=1cm},
+  every node/.style={vertex}
+  ]
+  
+  \pgfmathsetmacro\S{0}
+     \foreach \x in {1,3,5}
+  {
+    \foreach \y in {1,3,5}
+    {
+      
+
+      
+      \node (\x \y) at (\x,\y) {};
+      \ifnum\y>1
+        \pgfmathparse{int(\y-2)}                             
+        \draw  (\x \y) -- (\x \pgfmathresult);
+      \fi 
+      \ifnum\x>1
+        \pgfmathparse{int(\x-2)}                             
+        \draw  (\x \y)  -- (\pgfmathresult \y);
+      \fi 
+      
+            \pgfmathtruncatemacro\S{\S + 1}
+      
+       }
+  }
+  
+   
+   \begin{scope}[xshift=8cm]
+ 
+  
+  %%%
+  
+   \foreach \x in {1,3,5}
+  {
+    \foreach \y in {1,3,5}
+    {
+      \node (\x \y) at (\x,\y) {};
+      \ifnum\y>1
+        \pgfmathparse{int(\y-2)}                             
+        \draw  (\x \y) -- (\x \pgfmathresult);
+      \fi 
+      \ifnum\x>1
+        \pgfmathparse{int(\x-2)}                             
+        \draw  (\x \y)  -- (\pgfmathresult \y);
+      \fi 
+      \ifnum \x >1 
+      	\ifnum \y > 1
+		\pgfmathparse{int(\x-2)}
+		\pgfmathsetmacro{\linkx}{\pgfmathresult}
+		
+		\pgfmathparse{int(\y-2)}
+		\pgfmathsetmacro{\linky}{\pgfmathresult}
+		
+		\draw(\x \y) -- (\linkx \linky);
+		\draw(\linkx \y) -- (\x \linky);
+		\fi
+	\fi
+    }
+  }
+
+\end{scope}  
+\end{tikzpicture}    %%
+\caption{Lattice}
+\label{fig:lattice}
+\end{figure}
+
+
 
 
 \bibliographystyle{plain}
