@@ -193,7 +193,7 @@ MI_{\hat{P}}(X_i, X_{\pi_{i}}^{1}) + \sum_{l = 2}^{L} MI_{\hat{P}}(X_i, X_{\pi_i
 
 \section{Q2: Sigmoid Bayes nets}
 
-Since by construction, bayes nets are DAGs and nodes are separated into two layers, we assume the architecture illustrated in {\bf Fig ~\ref{fig:bayes}.
+Since by construction, bayes nets are DAGs and nodes are separated into two layers, we assume the architecture illustrated in {\bf Fig ~\ref{fig:bayes}}.
 
 \begin{figure}
 \centering
@@ -201,6 +201,38 @@ Since by construction, bayes nets are DAGs and nodes are separated into two laye
 \caption{Bayes net with one hidden layer parametrized by weight matrix $W$.}
 \label{fig:bayes}
 \end{figure}
+
+We want to find the $W$ that maximizes the likelihood that the hidden nodes $H$ generated the data seen by the visible nodes $V$. Let us assume we receive a set of values $D$ for the visible nodes which we represent as the vector $\vek{v}$. We wish to maximize the likelihood over all data vectors in $D$ with respect to the weight of each connection $w_{ij}$.
+
+In the following derivation (based on the text by Neal Radford ~\cite{neal1992connectionist}), we will be making use of Bayes rule on the probability of the vector $\vek{x}$ of nodes in graph $X$ which can be viewed as the joint probability over all nodes in the graph, given the values of the visible nodes. Note that we can form the vector of nodes $x$ by joining the vectors of visible and hidden nodes as $\vek{x} = \langle \vek{v}, \vek{h} \rangle$.
+
+\begin{equation}
+P(X= \langle \vek{v}, \vek{h} \rangle) = P(X = \langle \vek{v}, \vek{h} \rangle \vert V = \vek{v}) P(V = \vek{v})
+\end{equation}
+
+Now we maximize the log likelihood of the data with respect to the weights.
+
+\begin{equation}
+\begin{aligned}
+\frac{\partial L}{\partial w_{ij}} &= \frac{\partial}{\partial w_{ij}} \log \prod_{\vek{v} \in D} P(V = \vek{v}) \\
+						 & =  \frac{\partial}{\partial w_{ij}} \sum_{\vek{v} \in D} \log P(V = \vek{v}) \\
+						 & =  \sum_{\vek{v} \in D}  \frac{1}{P(V = \vek{v})} \frac{\partial}{\partial w_{ij}} P(V = \vek{d}) \\
+						 & =  \sum_{\vek{v} \in D}  \frac{P(X = \vek{x} \vert V = \vek{v})}{P(X = \vek{x})} \frac{\partial}{\partial w_{ij}} P(V = \vek{d}) && \text{bayes rule}\\
+						 & = \sum_{\vek{v} \in D}  \frac{P(X = \langle \vek{v}, \vek{h} \rangle \vert V = \vek{v})}{P(X = \langle \vek{v}, \vek{h} \rangle)}  \sum_{h \in H} \frac{\partial}{\partial w_{ij}} P(X=\langle \vek{v}, \vek{h} \rangle) && \text{marginalizing over H} \\
+						 & = \sum_{\vek{v} \in D}   \sum_{\vek{x}} \frac{P(X = \vek{x}  \vert V = \vek{v})}{P(X = \vek{x)}}  \frac{\partial}{\partial w_{ij}} P(X=\vek{x}) && \text{use given parametrization} \\
+						 & = \sum_{\vek{v} \in D}   \sum_{\vek{x}} P(X = \vek{x}  \vert V = \vek{v}) \frac{1}{\sigma(X_i \sum_{j \in \pi_i} w_{ij}X_j)} \frac{\partial}{\partial w_{ij}} \sigma(X_i \sum_{j \in \pi_i} w_{ij}X_j)) && \text{multiply by $X_i$ for binary values} \\
+						 & = \sum_{\vek{v} \in D}   \sum_{\vek{x}} P(X = \vek{x}  \vert V = \vek{v}) X_{i} X_{j} \sigma(-X_{i} \sum_{\pi_i} w_{ij} X_{j})
+\end{aligned}
+\end{equation}
+
+From this we can get an update rule for $w_{ij}$ as:
+
+\begin{equation}
+w_{ij}^{new} = w_{ij} + \alpha X_{i} X_{j} \sigma(-X_{i} \sum_{\pi_i} w_{ij} X_{j})
+\end{equation}
+
+We can generate samples for $P(X = \vek{x}  \vert V = \vek{v})$ using Gibbs sampling, by fixing the visible nodes to a certain value and sampling for the hidden nodes. 
+
 
 \bibliographystyle{plain}
 \bibliography{A2_cgo}
