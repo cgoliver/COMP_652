@@ -261,7 +261,7 @@ We can generate samples for $P(X = \vek{x}  \vert V = \vek{v})$ using Gibbs samp
 	
 	\pgfmathsetmacro{\adjustedindex}{\intcalcMod{\currentindex + 6}{9}}
       
-      \node (\x \y) at (\x,\y) {$X_\adjustedindex$};
+      \node (\x \y) at (\x,\y) {};
       \ifnum\y>1
         \pgfmathparse{int(\y-2)}                             
         \draw  (\x \y) -- (\x \pgfmathresult);
@@ -289,7 +289,7 @@ We can generate samples for $P(X = \vek{x}  \vert V = \vek{v})$ using Gibbs samp
     \pgfmathparse{int((\xcount-1)*3 + \ycount}
     \pgfmathsetmacro{\currentindex}{\pgfmathresult}
 	
-      \node (\x \y) at (\x,\y) {$X_{\currentindex}$};
+      \node (\x \y) at (\x,\y) {};
       \ifnum\y>1
         \pgfmathparse{int(\y-2)}                             
         \draw  (\x \y) -- (\x \pgfmathresult);
@@ -319,9 +319,7 @@ We can generate samples for $P(X = \vek{x}  \vert V = \vek{v})$ using Gibbs samp
 \label{fig:lattice}
 \end{figure}
 
-If we parametrize the joint $p(\vek{x}) = \frac{1}{Z} \prod_C \psi_{c}\vek(x_C)$ the same as before with one parameter per clique the 8-neighbourhood model will be heavily biased due to an overall decrease in the number of parameters with respect to the model complexity. Therefore we need to introduce parameters for the different connections within cliques.
-
-We also retain the same energy computation.
+If we parametrize the joint $p(\vek{x}) = \frac{1}{Z} \prod_C \psi_{c}\vek(x_C)$ the same as before with one parameter per clique the 8-neighbourhood model will be heavily biased due to an overall decrease in the number of parameters with respect to the model complexity. Therefore we need to introduce parameters for the different connections within cliques. Indeed, we will now have cliques of sizes 1, 2, 3 and 4. It would therefore be convenient to express the markov field instead as a factor graph where each factor incorporates unique cliques of different sizes. 
 
 \subsection{(b)}
 
@@ -332,8 +330,99 @@ Cons:
 \end{itemize}
 Pros:
 \begin{itemize}
-	\item Capture more complex geometric correlations such as curvatures 
+	\item Capture more complex geometric correlations such as curvatures and non-linear patterns.
 \end{itemize}
+
+\subsection{(c)}
+
+Here we would iteratively sample a value for a given pixel conditioned on all other nodes, and incorporating evidence introduced from the leftmost nodes. Naturally, we would want to perform the sampling in the direction evidence is flowing in from. We denote a random variable on the lattice $X_{ij} \in \tilde{X}$ as the random variable in row $i$ and column $j$. Nodes $X_{i,j=1}$ will be the nodes receiving observed values $y_{ij} \in \tilde{Y_{ij}}$. We repeat the outer while loop until convergence.
+
+\IncMargin{1em}
+\begin{algorithm}[H]
+	\SetKwInOut{Input}{input}\SetKwInOut{Output}{output}
+
+	\Input{$\tilde{X}$, $\tilde{Y}$, $p_{X_i \vert \tilde{X} - X_i}^{initial}(x_i \vert \tilde{X} - X_i)$}
+	\Output{ $\tilde{Y}$, $\hat{p}_{X_i \vert \tilde{X} - X_i}(x_i \vert \tilde{X} - X_i)$}
+	
+	$X_{ij} \leftarrow \texttt{random}$\\
+	\While{}{
+	\For{$X_{j,i}$ in $cols(\tilde{X})$}{
+		\If{evidence for $X_{i,j}$}{
+		$x_{i,j} \leftarrow y_{i,j}$ \texttt{for any given evidence values}
+		}
+		\Else{
+		$x_{i,j} \leftarrow \texttt{draw from} p_{X_{i} \vert \tilde{X} - X_{i}}(x_{ij} \vert \tilde{x} - x_{ij})$
+		}
+	
+		$x^{new}_{ij} \leftarrow x_{ij}$
+	}
+	
+	}
+	\Return $\tilde{X}$
+
+\end{algorithm}
+
+
+\section{Q4: EM Algorithm}
+
+\subsection{(a)}
+
+The data is a collection $D$ of documents $d$ which are composed of $N$ words. These words can be seen as a collection of independent samples from the distributions corresponding to the document's topic $k$. Therefore, in order to maximize likelihood of the parameters $\mu$ and $\pi$ we take a likelihood over all documents and words contained in each document.
+
+The resulting maximum likelihood estimators are:
+
+\begin{equation}
+\begin{aligned}
+\pi_{k} &= \frac{D_k}{\vert D \vert} && \text{The frequency of a subject over the number of documents} \\
+\mu_{k}(i) &= \frac{C_{k}(i)}{C_{k}} && \text{The count of occurences of a word of topic $k$ over all words of topic $k$}
+\end{aligned}
+\end{equation}
+
+\subsection{(b)}
+
+Since a document may cover multiple subjects, we have a mixture of distributions where each distribution has some responsibility in explaining the observed value. We call this term $\gamma(\vek{z_{kn}})$ where $\vek{z}$ is a 1 of $k$ encoding of the distribution that produced word $n$ and $p(z_{k} = 1) = \pi_k$ for a given instance $n$.\\
+
+{\bf Step 1: Initialization}\\
+
+Assign random values to the parameters $\pi$ and $\mu$.\\
+
+{\bf Step 2: Expectation} \\
+For all $n$ in sample and for all topics $k$: \\
+\begin{equation}
+\gamma(z_{nk}) = \frac{\prod_{i=1}^{M} (\mu_{k}(i))^{W(i)}}{\sum_{k=1}^{K} \pi_k (\mu_{k}(i))^{W(i)}}
+\end{equation}
+
+{\bf Step 2: Maximization: use maximum likelihood estimators to update $\pi$ and $\mu$ based on responsibilities computed in expectation step.}\\
+
+
+\begin{equation}
+\begin{aligned}
+\mu_{k}^{new}(i) &= \frac{\sum_{D_j }\sum_{W_n \in D_j} \gamma(z_{kn}) \mu_{k}(i)}{\sum_{D_j} \sum_{W_n \in D_j}  \mu_{k}(i)} && \text{Taken over all words $i$ and topics $k$}\\
+\pi_{k}^{new} &= \frac{\sum_{W_n}^{N} \gamma(z_{kn})}{N}
+\end{aligned}
+\end{equation}
+
+\subsection{(c)}
+
+We can illustrate this scenario with a graphical model in {\bf Fig. ~\ref{fig:graph}}. We can have up to $n-1$ possible values for the previous word $W_{t-1}$ and the current word is parametrized by the $k$ distributions of topics over $m$ possible dictionary words so we have a total of $m \times (n-1) \times k$ parameters.
+
+\begin{figure}
+\begin{tikzpicture}[
+  vertex/.style={draw,circle,minimum size=1.5cm},
+  every node/.style={vertex}
+  ]
+	 \node (prev) at (0,0) {$W_{t-1}$};
+	 \node [right = of prev]  (w) {$W_t$};
+	 \node [above = of w] (topic) {$\vek{z}$};
+	 
+	 \draw [->] (prev) edge (w) (topic) edge (w);
+\end{tikzpicture}
+\caption{Graphical representation of dependence of current word $W_t$ in document on the previous word $W_{t-1}$ and the topic mixture vector $\vek{z}$.}
+\label{fig:graph}
+\end{figure}
+
+
+
 
 \bibliographystyle{plain}
 \bibliography{A2_cgo}

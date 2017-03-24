@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.5.22)  22 MAR 2017 19:35
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.5.22)  23 MAR 2017 20:32
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -702,19 +702,44 @@ Overfull \hbox (42.26413pt too wide) detected at line 232
 [] []
  []
 
-[7 <./Figures/bayes.pdf>] (./A2_cgo.bbl) [8] (./A2_cgo.aux) )
+[7 <./Figures/bayes.pdf>] [8]
+Underfull \hbox (badness 10000) in paragraph at lines 383--384
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 385--386
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 387--388
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 389--391
+
+ []
+
+[9]
+Underfull \hbox (badness 10000) in paragraph at lines 395--396
+
+ []
+
+(./A2_cgo.bbl) [10] (./A2_cgo.aux) )
 (\end occurred inside a group at level 1)
 
 ### simple group (level 1) entered at line 1061 ({)
 ### bottom level 
 Here is how much of TeX's memory you used:
- 15511 strings out of 493014
- 295100 string characters out of 6133351
- 356453 words of memory out of 5000000
- 18608 multiletter control sequences out of 15000+600000
- 12708 words of font info for 48 fonts, out of 8000000 for 9000
+ 15551 strings out of 493014
+ 295703 string characters out of 6133351
+ 356462 words of memory out of 5000000
+ 18646 multiletter control sequences out of 15000+600000
+ 13212 words of font info for 51 fonts, out of 8000000 for 9000
  1302 hyphenation exceptions out of 8191
- 55i,12n,76p,690b,10952s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 55i,19n,76p,690b,10948s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts
 /cm/cmbx10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/
 cm/cmbx8.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm
@@ -729,13 +754,14 @@ b></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb><
 usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></us
 r/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr
 /local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmti9.pfb></usr/l
-ocal/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></u
-sr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb
->
-Output written on A2_cgo.pdf (8 pages, 382229 bytes).
+ocal/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/lo
+cal/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></us
+r/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+
+Output written on A2_cgo.pdf (10 pages, 409786 bytes).
 PDF statistics:
- 122 PDF objects out of 1000 (max. 8388607)
- 80 compressed objects within 1 object stream
+ 132 PDF objects out of 1000 (max. 8388607)
+ 87 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  18 words of extra memory for PDF output out of 10000 (max. 10000000)
 
