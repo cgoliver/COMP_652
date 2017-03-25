@@ -315,7 +315,7 @@ We can generate samples for $P(X = \vek{x}  \vert V = \vek{v})$ using Gibbs samp
 
 \end{scope}  
 \end{tikzpicture}    %%
-\caption{Lattice}
+\caption{Illustration of the 2 and 4 neighbour lattice models. We can see that the number of relationships increases and so we must introduce new parameters to account for these interactions.}
 \label{fig:lattice}
 \end{figure}
 
@@ -404,7 +404,7 @@ For all $n$ in sample and for all topics $k$: \\
 
 \subsection{(c)}
 
-We can illustrate this scenario with a graphical model in {\bf Fig. ~\ref{fig:graph}}. We can have up to $n-1$ possible values for the previous word $W_{t-1}$ and the current word is parametrized by the $k$ distributions of topics over $m$ possible dictionary words so we have a total of $m \times (n-1) \times k$ parameters.
+We can illustrate this scenario with a graphical model in {\bf Fig. ~\ref{fig:graph}}. We can have up to $n-1$ possible values for the previous word $W_{t-1}$ and the current word is parametrized by the $k$ distributions of topics over $m$ possible dictionary words so we have a total of $m \times (n-1) \times k$ parameters. Due to the increase in model complexity we would likely observe an increase in the variance compared to the previous model. 
 
 \begin{figure}
 \begin{tikzpicture}[
