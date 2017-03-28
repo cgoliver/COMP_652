@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.5.22)  27 MAR 2017 20:54
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.5.22)  28 MAR 2017 10:41
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1819,59 +1819,59 @@ File: microtype.cfg 2016/05/14 v2.6a microtype main configuration file (RS)
 (./652_cheatsheet.aux)
 \openout1 = `652_cheatsheet.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/jkp/m/it on input line 188.
-LaTeX Font Info:    Try loading font information for OML+jkp on input line 188.
+LaTeX Font Info:    Checking defaults for OML/jkp/m/it on input line 190.
+LaTeX Font Info:    Try loading font information for OML+jkp on input line 190.
 
 
 (/usr/local/texlive/2016/texmf-dist/tex/latex/kpfonts/omljkp.fd
 File: omljkp.fd 2006/08/15 v1.0
 )
-LaTeX Font Info:    ... okay on input line 188.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 188.
-LaTeX Font Info:    ... okay on input line 188.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 188.
-LaTeX Font Info:    ... okay on input line 188.
-LaTeX Font Info:    Checking defaults for OMS/jkp/m/n on input line 188.
-LaTeX Font Info:    Try loading font information for OMS+jkp on input line 188.
+LaTeX Font Info:    ... okay on input line 190.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 190.
+LaTeX Font Info:    ... okay on input line 190.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 190.
+LaTeX Font Info:    ... okay on input line 190.
+LaTeX Font Info:    Checking defaults for OMS/jkp/m/n on input line 190.
+LaTeX Font Info:    Try loading font information for OMS+jkp on input line 190.
 
 
 (/usr/local/texlive/2016/texmf-dist/tex/latex/kpfonts/omsjkp.fd
 File: omsjkp.fd 2006/08/15 v1.0
 )
-LaTeX Font Info:    ... okay on input line 188.
-LaTeX Font Info:    Checking defaults for OMX/jkp/m/n on input line 188.
-LaTeX Font Info:    Try loading font information for OMX+jkp on input line 188.
+LaTeX Font Info:    ... okay on input line 190.
+LaTeX Font Info:    Checking defaults for OMX/jkp/m/n on input line 190.
+LaTeX Font Info:    Try loading font information for OMX+jkp on input line 190.
 
 
 (/usr/local/texlive/2016/texmf-dist/tex/latex/kpfonts/omxjkp.fd
 File: omxjkp.fd 2006/08/15 v1.0
 )
-LaTeX Font Info:    ... okay on input line 188.
-LaTeX Font Info:    Checking defaults for U/jkpexa/m/n on input line 188.
-LaTeX Font Info:    Try loading font information for U+jkpexa on input line 188
+LaTeX Font Info:    ... okay on input line 190.
+LaTeX Font Info:    Checking defaults for U/jkpexa/m/n on input line 190.
+LaTeX Font Info:    Try loading font information for U+jkpexa on input line 190
 .
 
 (/usr/local/texlive/2016/texmf-dist/tex/latex/kpfonts/ujkpexa.fd
 File: ujkpexa.fd 2006/08/15 v1.0
 )
-LaTeX Font Info:    ... okay on input line 188.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 188.
-LaTeX Font Info:    Try loading font information for TS1+cmr on input line 188.
+LaTeX Font Info:    ... okay on input line 190.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 190.
+LaTeX Font Info:    Try loading font information for TS1+cmr on input line 190.
 
 
 (/usr/local/texlive/2016/texmf-dist/tex/latex/base/ts1cmr.fd
 File: ts1cmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
-LaTeX Font Info:    ... okay on input line 188.
-LaTeX Font Info:    Checking defaults for LY1/ptm/m/n on input line 188.
-LaTeX Font Info:    Try loading font information for LY1+ptm on input line 188.
+LaTeX Font Info:    ... okay on input line 190.
+LaTeX Font Info:    Checking defaults for LY1/ptm/m/n on input line 190.
+LaTeX Font Info:    Try loading font information for LY1+ptm on input line 190.
 
 
 (/usr/local/texlive/2016/texmf-dist/tex/latex/ly1/ly1ptm.fd
 File: ly1ptm.fd 2001/02/01 font definitions for LY1/ptm using Berry names.
 )
-LaTeX Font Info:    ... okay on input line 188.
-LaTeX Font Info:    Try loading font information for T1+jkp on input line 188.
+LaTeX Font Info:    ... okay on input line 190.
+LaTeX Font Info:    Try loading font information for T1+jkp on input line 190.
 
 (/usr/local/texlive/2016/texmf-dist/tex/latex/kpfonts/t1jkp.fd
 File: t1jkp.fd 2007/01/24 Fontinst v1.928 font definitions for T1/jkp.
@@ -1940,7 +1940,7 @@ e
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
 \AtBeginShipoutBox=\box110
-LaTeX Info: Redefining \microtypecontext on input line 188.
+LaTeX Info: Redefining \microtypecontext on input line 190.
 Package microtype Info: Generating PDF output.
 Package microtype Info: Character protrusion enabled (level 2).
 Package microtype Info: Using default protrusion set `alltext'.
@@ -1999,103 +1999,142 @@ LaTeX Font Info:    Try loading font information for U+jkpsyc on input line 3.
 (/usr/local/texlive/2016/texmf-dist/tex/latex/kpfonts/ujkpsyc.fd
 File: ujkpsyc.fd 2006/08/15 v1.0
 )
-Underfull \hbox (badness 10000) in paragraph at lines 3--16
+
+Package amsmath Warning: Foreign command \atopwithdelims;
+(amsmath)                \frac or \genfrac should be used instead
+(amsmath)                 on input line 17.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3--27
 \T1/jkp/b/n/9 Chain ru-le:  $[]\OML/jkp/m/it/9 P\OT1/jkp/m/n/9 (+20) (\OML/jkp/
 m/it/9 A[]; [] ; A[]\OT1/jkp/m/n/9 (+20) ) =
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 3--16
+Underfull \hbox (badness 10000) in paragraph at lines 3--27
 \T1/jkp/b/n/9 Joint:  $[]\OT1/jkp/m/n/9 (+20) P [] =
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 3--16
+Underfull \hbox (badness 10000) in paragraph at lines 3--27
+\T1/jkp/b/n/9 Cond. entro-py: $[]\OML/jkp/m/it/9 H\OT1/jkp/m/n/9 (+20) (\OML/jk
+p/m/it/9 Y\OMS/jkp/m/n/9 j\OML/jkp/m/it/9 X\OT1/jkp/m/n/9 (+20) ) =
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3--27
+[][] \OML/jkp/m/it/9 p\OT1/jkp/m/n/9 (+20) (\OML/jkp/m/it/9 x\OT1/jkp/m/n/9 (+2
+0) )\OML/jkp/m/it/9 H\OT1/jkp/m/n/9 (+20) (\OML/jkp/m/it/9 Y\OMS/jkp/m/n/9 j\OM
+L/jkp/m/it/9 X \OT1/jkp/m/n/9 (+20) = \OML/jkp/m/it/9 x\OT1/jkp/m/n/9 (+20) ) =
 
  []
 
 
-Overfull \hbox (6.66908pt too wide) detected at line 28
+Underfull \hbox (badness 10000) in paragraph at lines 3--27
+\OMS/jkp/m/n/9 ^^@ [][] \OML/jkp/m/it/9 p\OT1/jkp/m/n/9 (+20) (\OML/jkp/m/it/9 
+x\OT1/jkp/m/n/9 (+20) ) [][] \OML/jkp/m/it/9 p\OT1/jkp/m/n/9 (+20) (\OML/jkp/m/
+it/9 y\OMS/jkp/m/n/9 j\OML/jkp/m/it/9 x\OT1/jkp/m/n/9 (+20) ) [] \OML/jkp/m/it/
+9 p\OT1/jkp/m/n/9 (+20) (\OML/jkp/m/it/9 y\OMS/jkp/m/n/9 j\OML/jkp/m/it/9 x\OT1
+/jkp/m/n/9 (+20) ) =
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3--27
+[]\OML/jkp/m/it/9 H\OT1/jkp/m/n/9 (+20) (\OML/jkp/m/it/9 Y\OMS/jkp/m/n/9 j\OML/
+jkp/m/it/9 X\OT1/jkp/m/n/9 (+20) ) = \OML/jkp/m/it/9 H\OT1/jkp/m/n/9 (+20) (\OM
+L/jkp/m/it/9 X\OMS/jkp/m/n/9 j\OML/jkp/m/it/9 Y\OT1/jkp/m/n/9 (+20) ) \OMS/jkp/
+m/n/9 ^^@ \OML/jkp/m/it/9 H\OT1/jkp/m/n/9 (+20) (\OML/jkp/m/it/9 X\OT1/jkp/m/n/
+9 (+20) ) + \OML/jkp/m/it/9 H\OT1/jkp/m/n/9 (+20) (\OML/jkp/m/it/9 Y\OT1/jkp/m/
+n/9 (+20) )$[]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3--27
+\T1/jkp/b/n/9 Mutual in-fo:  $[]\OML/jkp/m/it/9 I\OT1/jkp/m/n/9 (+20) (\OML/jkp
+/m/it/9 X\OT1/jkp/m/n/9 (+20) ; \OML/jkp/m/it/9 Y\OT1/jkp/m/n/9 (+20) ) =
+ []
+
+
+Overfull \hbox (6.66908pt too wide) detected at line 39
 [][] \OT1/jkp/m/n/9 = [] [] = []
  []
 
-LaTeX Font Info:    Try loading font information for TS1+jkp on input line 61.
-(/usr/local/texlive/2016/texmf-dist/tex/latex/kpfonts/ts1jkp.fd
-File: ts1jkp.fd 2007/08/30 Fontinst v1.928 font definitions for TS1/jkp.
-)
-Package microtype Info: Loading generic settings for font family
-(microtype)             `jkp' (encoding: TS1).
-(microtype)             For optimal results, create family-specific settings.
-(microtype)             See the microtype manual for details.
 
-<error.png, id=4, 527.9725pt x 365.365pt>
-File: error.png Graphic file (type png)
- <use error.png>
-Package pdftex.def Info: error.png used on input line 82.
+Underfull \hbox (badness 10000) in paragraph at lines 85--87
+[]$[]\OML/jkp/m/it/9 ^^[\OT1/jkp/m/n/9 (+20) (\OML/jkp/m/it/9 t\OT1/jkp/m/n/9 (
++20) ) = [] = []$[] $[]\OML/jkp/m/it/9 L\OT1/jkp/m/n/9 (+20) (\OT1/jkp/b/n/9 w\
+OT1/jkp/m/n/9 (+20) ) =
+ []
+
+<Images/error.png, id=4, 527.9725pt x 365.365pt>
+File: Images/error.png Graphic file (type png)
+ <use Images/error.png>
+Package pdftex.def Info: Images/error.png used on input line 93.
 (pdftex.def)             Requested size: 80.22015pt x 55.5104pt.
 
-Underfull \hbox (badness 5316) in paragraph at lines 102--103
+Underfull \hbox (badness 5316) in paragraph at lines 108--110
 \T1/jkp/m/n/9 (+20) xi-ma (nor-mal-ly li-ke-lihood has un-i-
  []
 
 
-Underfull \hbox (badness 6001) in paragraph at lines 102--103
+Underfull \hbox (badness 6001) in paragraph at lines 108--110
 \T1/jkp/m/n/9 (+20) So we do gra-di-ent ascent or EM.
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 102--103
+Underfull \hbox (badness 10000) in paragraph at lines 108--110
 [][] [] [][]\OT1/jkp/m/n/9 (+20) ([]\OMS/jkp/m/n/9 j\OML/jkp/m/it/9 ^^R\OT1/jkp
 /m/n/9 (+20) )$[]\T1/jkp/m/n/9 (+20) . \T1/jkp/b/n/9 E step\T1/jkp/m/n/9 (+20) 
 :
  []
 
-<path_1.png, id=6, 474.77374pt x 147.55125pt>
-File: path_1.png Graphic file (type png)
- <use path_1.png>
-Package pdftex.def Info: path_1.png used on input line 107.
+<Images/path_1.png, id=6, 474.77374pt x 147.55125pt>
+File: Images/path_1.png Graphic file (type png)
+ <use Images/path_1.png>
+Package pdftex.def Info: Images/path_1.png used on input line 113.
 (pdftex.def)             Requested size: 80.22015pt x 24.93027pt.
 
-<path_2.png, id=7, 501.875pt x 107.40125pt>
-File: path_2.png Graphic file (type png)
- <use path_2.png>
-Package pdftex.def Info: path_2.png used on input line 108.
+<Images/path_2.png, id=7, 501.875pt x 107.40125pt>
+File: Images/path_2.png Graphic file (type png)
+ <use Images/path_2.png>
+Package pdftex.def Info: Images/path_2.png used on input line 114.
 (pdftex.def)             Requested size: 80.22015pt x 17.16652pt.
 
-<path_3.png, id=8, 473.77pt x 145.54375pt>
-File: path_3.png Graphic file (type png)
- <use path_3.png>
-Package pdftex.def Info: path_3.png used on input line 109.
+<Images/path_3.png, id=8, 473.77pt x 145.54375pt>
+File: Images/path_3.png Graphic file (type png)
+ <use Images/path_3.png>
+Package pdftex.def Info: Images/path_3.png used on input line 115.
 (pdftex.def)             Requested size: 80.22015pt x 24.64217pt.
 
-<markov_blanket.png, id=9, 322.20375pt x 245.91875pt>
-File: markov_blanket.png Graphic file (type png)
- <use markov_blanket.png>
-Package pdftex.def Info: markov_blanket.png used on input line 110.
+<Images/markov_blanket.png, id=9, 322.20375pt x 245.91875pt>
+File: Images/markov_blanket.png Graphic file (type png)
+
+<use Images/markov_blanket.png>
+Package pdftex.def Info: Images/markov_blanket.png used on input line 116.
 (pdftex.def)             Requested size: 48.13257pt x 36.73611pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 107--111
+Underfull \hbox (badness 10000) in paragraph at lines 113--117
 [][]
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 107--111
+Underfull \hbox (badness 10000) in paragraph at lines 113--117
 []
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 112--116
+Underfull \hbox (badness 10000) in paragraph at lines 118--122
 \T1/jkp/b/n/9 Belief pro-pa-ga-ti-on:  \T1/jkp/m/n/9 (+20) This
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 112--116
+Underfull \hbox (badness 10000) in paragraph at lines 118--122
 \T1/jkp/m/n/9 (+20) is ex-act in-fe-rence $[]\OML/jkp/m/it/9 m[] \OT1/jkp/m/n/9
  (+20) =
  []
 
 
-Overfull \hbox (0.92174pt too wide) in paragraph at lines 112--116
+Overfull \hbox (0.92174pt too wide) in paragraph at lines 118--122
 [][] []\OML/jkp/m/it/9  []\OT1/jkp/m/n/9 (-20) (\OML/jkp/m/it/9 x[]\OT1/jkp/m/n
 /9 (-20) )\OML/jkp/m/it/9  \OT1/jkp/m/n/9 (-20) (\OML/jkp/m/it/9 x[]; x[]\OT1/j
 kp/m/n/9 (-20) ) [][] \OML/jkp/m/it/9 m[]\OT1/jkp/m/n/9 (-20) (\OML/jkp/m/it/9 
@@ -2103,30 +2142,30 @@ x[]\OT1/jkp/m/n/9 (-20) )[]$[]
  []
 
 
-Underfull \hbox (badness 5064) in paragraph at lines 117--119
+Underfull \hbox (badness 5064) in paragraph at lines 123--125
 []\T1/jkp/b/n/9 Gibbs Samp-ling (ap-pro-xi-ma-te in-fe-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 120--122
+Underfull \hbox (badness 10000) in paragraph at lines 126--128
 []\T1/jkp/b/n/9 Markov pro-per-ty:  $[]\OML/jkp/m/it/9 P\OT1/jkp/m/n/9 (+20) (\
 OML/jkp/m/it/9 s[]\OMS/jkp/m/n/9 j\OML/jkp/m/it/9 s[]\OT1/jkp/m/n/9 (+20) ) =
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 125--131
+Underfull \hbox (badness 10000) in paragraph at lines 131--137
 []\OML/jkp/m/it/9 P\OT1/jkp/m/n/9 (+20) (\OML/jkp/m/it/9 o[]; ::; o[]; s[]; ::;
  s[]\OT1/jkp/m/n/9 (+20) ) =
  []
 
 
-Underfull \hbox (badness 7740) in paragraph at lines 125--131
+Underfull \hbox (badness 7740) in paragraph at lines 131--137
 \T1/jkp/b/n/9 Forward alg: \T1/jkp/m/n/9 (+20) Com-pu-te $[]\OML/jkp/m/it/9 P\O
 T1/jkp/m/n/9 (+20) (\OML/jkp/m/it/9 o[]; S[] \OT1/jkp/m/n/9 (+20) =
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 125--131
+Underfull \hbox (badness 10000) in paragraph at lines 131--137
 \OML/jkp/m/it/9 s; \OT1/jkp/m/n/9 (+20) )$[] $[]\OML/jkp/m/it/9 []\OT1/jkp/m/n
 /9 (+20) (\OML/jkp/m/it/9 S[]\OT1/jkp/m/n/9 (+20) ) = \OML/jkp/m/it/9 P\OT1/jkp
 /m/n/9 (+20) (\OML/jkp/m/it/9 o[]; ::; o[]; S[] \OT1/jkp/m/n/9 (+20) = \OML/jkp
@@ -2134,12 +2173,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 125--131
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 125--131
+Underfull \hbox (badness 10000) in paragraph at lines 131--137
 \T1/jkp/b/n/9 Backward alg:  \T1/jkp/m/n/9 (+20) ob-tain
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 125--131
+Underfull \hbox (badness 10000) in paragraph at lines 131--137
 []\OML/jkp/m/it/9 ^^L[]\OT1/jkp/m/n/9 (+20) (\OML/jkp/m/it/9 s[]\OT1/jkp/m/n/9 
 (+20) ) = \OML/jkp/m/it/9 p\OT1/jkp/m/n/9 (+20) (\OML/jkp/m/it/9 o[]\OMS/jkp/m/
 n/9 j\OML/jkp/m/it/9 s[]\OT1/jkp/m/n/9 (+20) )$[]\T1/jkp/m/n/9 (+20) . $[]\OML/
@@ -2148,165 +2187,220 @@ jkp/m/it/9 ^^L[]\OT1/jkp/m/n/9 (+20) (\OML/jkp/m/it/9 s[]\OT1/jkp/m/n/9 (+20) )
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 125--131
+Underfull \hbox (badness 10000) in paragraph at lines 131--137
 []$[]\T1/jkp/m/n/9 (+20) ,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 125--131
+Underfull \hbox (badness 10000) in paragraph at lines 131--137
 []\OML/jkp/m/it/9 q[] \OT1/jkp/m/n/9 (+20) = [] =
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 125--131
+Underfull \hbox (badness 10000) in paragraph at lines 131--137
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 133--135
+Underfull \hbox (badness 10000) in paragraph at lines 139--141
 \T1/jkp/b/n/9 Parameter Lear-ning:  \T1/jkp/m/n/9 (+20) Be-cau-se of
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 133--135
+Underfull \hbox (badness 10000) in paragraph at lines 139--141
 \T1/jkp/m/n/9 (+20) ken down, can use gra-di-ent ba-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 133--135
+Underfull \hbox (badness 10000) in paragraph at lines 139--141
 \T1/jkp/m/n/9 (+20) sed. Max li-ke-lihood: $[][] \OML/jkp/m/it/9 L\OT1/jkp/m/n/
 9 (+20) (\OML/jkp/m/it/9  \OMS/jkp/m/n/9 j\OML/jkp/m/it/9 D\OT1/jkp/m/n/9 (+20)
  ) =
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 133--135
+Underfull \hbox (badness 10000) in paragraph at lines 139--141
 [][] [] \OML/jkp/m/it/9 p\OT1/jkp/m/n/9 (+20) (\OML/jkp/m/it/9 x[]; :::; x[]\OT
 1/jkp/m/n/9 (+20) ) = \OML/jkp/m/it/9 Z[] []\OT1/jkp/m/n/9 (+20) ([]) =
  []
 
-<mrf.png, id=10, 706.64pt x 381.425pt>
-File: mrf.png Graphic file (type png)
- <use mrf.png>
-Package pdftex.def Info: mrf.png used on input line 136.
+<Images/mrf.png, id=10, 706.64pt x 381.425pt>
+File: Images/mrf.png Graphic file (type png)
+ <use Images/mrf.png>
+Package pdftex.def Info: Images/mrf.png used on input line 142.
 (pdftex.def)             Requested size: 80.22015pt x 43.29549pt.
 
-<wfa.png, id=11, 1151.30125pt x 719.68875pt>
-File: wfa.png Graphic file (type png)
- <use wfa.png>
-Package pdftex.def Info: wfa.png used on input line 145.
+<Images/wfa.png, id=11, 1151.30125pt x 719.68875pt>
+File: Images/wfa.png Graphic file (type png)
+ <use Images/wfa.png>
+Package pdftex.def Info: Images/wfa.png used on input line 151.
 (pdftex.def)             Requested size: 160.4403pt x 100.28352pt.
 
-<hankel.png, id=12, 1167.36125pt x 533.995pt>
-File: hankel.png Graphic file (type png)
- <use hankel.png>
-Package pdftex.def Info: hankel.png used on input line 149.
+<Images/hankel.png, id=12, 1167.36125pt x 533.995pt>
+File: Images/hankel.png Graphic file (type png)
+ <use Images/hankel.png>
+Package pdftex.def Info: Images/hankel.png used on input line 155.
 (pdftex.def)             Requested size: 160.4403pt x 73.38991pt.
-
-<hankel2.png, id=13, 939.51pt x 601.24625pt>
-File: hankel2.png Graphic file (type png)
- <use hankel2.png>
-Package pdftex.def Info: hankel2.png used on input line 155.
-(pdftex.def)             Requested size: 160.4403pt x 102.66922pt.
-
-<method_of_moments.png, id=14, 759.83875pt x 629.35126pt>
-File: method_of_moments.png Graphic file (type png)
-
-<use method_of_moments.png>
-Package pdftex.def Info: method_of_moments.png used on input line 161.
-(pdftex.def)             Requested size: 160.4403pt x 132.8879pt.
- <mom_tensors.png, id=15, 883.3pt x 405.515pt>
-File: mom_tensors.png Graphic file (type png)
-
-<use mom_tensors.png>
-Package pdftex.def Info: mom_tensors.png used on input line 163.
-(pdftex.def)             Requested size: 160.4403pt x 73.65163pt.
- <mom_2.png, id=16, 593.21625pt x 560.0925pt>
-File: mom_2.png Graphic file (type png)
-
-<use mom_2.png>
-Package pdftex.def Info: mom_2.png used on input line 165.
-(pdftex.def)             Requested size: 160.4403pt x 151.48338pt.
- <single_topic.png, id=17, 911.405pt x 621.32124pt>
 LaTeX Font Info:    Font shape `T1/SourceSansPro-LF/m/n' will be
-(Font)              scaled to size 8.0pt on input line 167.
+(Font)              scaled to size 8.0pt on input line 158.
 Package mdframed Info: mdframed inside a box 
- mdframed uses option nobreak mdframed on input line 167.
+ mdframed uses option nobreak mdframed on input line 158.
 
 Overfull \vbox (0.58315pt too high) has occurred while \output is active []
 
 
 [1
 
-{/usr/local/texlive/2016/texmf-var/fonts/map/pdftex/updmap/pdftex.map} <./error
-.png> <./path_1.png> <./path_2.png> <./path_3.png> <./markov_blanket.png> <./mr
-f.png> <./wfa.png> <./hankel.png> <./hankel2.png> <./method_of_moments.png>]
-File: single_topic.png Graphic file (type png)
+{/usr/local/texlive/2016/texmf-var/fonts/map/pdftex/updmap/pdftex.map} <./Image
+s/error.png> <./Images/path_1.png> <./Images/path_2.png> <./Images/path_3.png> 
+<./Images/markov_blanket.png> <./Images/mrf.png> <./Images/wfa.png>]
+<Images/hankel2.png, id=34, 939.51pt x 601.24625pt>
+File: Images/hankel2.png Graphic file (type png)
+ <use Images/hankel2.png>
+Package pdftex.def Info: Images/hankel2.png used on input line 161.
+(pdftex.def)             Requested size: 160.4403pt x 102.66922pt.
 
-<use single_topic.png>
-Package pdftex.def Info: single_topic.png used on input line 167.
+<Images/method_of_moments.png, id=35, 759.83875pt x 629.35126pt>
+File: Images/method_of_moments.png Graphic file (type png)
+
+<use Images/method_of_moments.png>
+Package pdftex.def Info: Images/method_of_moments.png used on input line 167.
+(pdftex.def)             Requested size: 160.4403pt x 132.8879pt.
+
+<Images/mom_tensors.png, id=36, 883.3pt x 405.515pt>
+File: Images/mom_tensors.png Graphic file (type png)
+
+<use Images/mom_tensors.png>
+Package pdftex.def Info: Images/mom_tensors.png used on input line 169.
+(pdftex.def)             Requested size: 160.4403pt x 73.65163pt.
+
+<Images/mom_2.png, id=37, 593.21625pt x 560.0925pt>
+File: Images/mom_2.png Graphic file (type png)
+ <use Images/mom_2.png>
+Package pdftex.def Info: Images/mom_2.png used on input line 171.
+(pdftex.def)             Requested size: 160.4403pt x 151.48338pt.
+
+<Images/single_topic.png, id=38, 911.405pt x 621.32124pt>
+File: Images/single_topic.png Graphic file (type png)
+
+<use Images/single_topic.png>
+Package pdftex.def Info: Images/single_topic.png used on input line 173.
 (pdftex.def)             Requested size: 160.4403pt x 109.36804pt.
- <single_topic_2.png, id=42, 793.96625pt x 513.92pt>
-File: single_topic_2.png Graphic file (type png)
 
-<use single_topic_2.png>
-Package pdftex.def Info: single_topic_2.png used on input line 169.
+<Images/single_topic_2.png, id=39, 793.96625pt x 513.92pt>
+File: Images/single_topic_2.png Graphic file (type png)
+
+<use Images/single_topic_2.png>
+Package pdftex.def Info: Images/single_topic_2.png used on input line 175.
 (pdftex.def)             Requested size: 160.4403pt x 103.84865pt.
- <tensor_decomp.png, id=43, 873.2625pt x 221.82875pt>
-File: tensor_decomp.png Graphic file (type png)
 
-<use tensor_decomp.png>
-Package pdftex.def Info: tensor_decomp.png used on input line 171.
+<Images/tensor_decomp.png, id=40, 873.2625pt x 221.82875pt>
+File: Images/tensor_decomp.png Graphic file (type png)
+
+<use Images/tensor_decomp.png>
+Package pdftex.def Info: Images/tensor_decomp.png used on input line 177.
 (pdftex.def)             Requested size: 160.4403pt x 40.75334pt.
 
-<tensor_decomp_2.png, id=44, 902.37125pt x 516.93124pt>
-File: tensor_decomp_2.png Graphic file (type png)
+<Images/tensor_decomp_2.png, id=41, 902.37125pt x 516.93124pt>
+File: Images/tensor_decomp_2.png Graphic file (type png)
 
-<use tensor_decomp_2.png>
-Package pdftex.def Info: tensor_decomp_2.png used on input line 173.
+<use Images/tensor_decomp_2.png>
+Package pdftex.def Info: Images/tensor_decomp_2.png used on input line 179.
 (pdftex.def)             Requested size: 160.4403pt x 91.90778pt.
 
-<tensor_decomp_3.png, id=45, 846.16125pt x 632.3625pt>
-File: tensor_decomp_3.png Graphic file (type png)
+<Images/tensor_decomp_3.png, id=42, 846.16125pt x 632.3625pt>
+File: Images/tensor_decomp_3.png Graphic file (type png)
 
-<use tensor_decomp_3.png>
-Package pdftex.def Info: tensor_decomp_3.png used on input line 175.
+<use Images/tensor_decomp_3.png>
+Package pdftex.def Info: Images/tensor_decomp_3.png used on input line 181.
 (pdftex.def)             Requested size: 160.4403pt x 119.89925pt.
+
+<Images/bayes_mle.png, id=43, 874.26625pt x 528.97626pt>
+File: Images/bayes_mle.png Graphic file (type png)
+
+<use Images/bayes_mle.png>
+Package pdftex.def Info: Images/bayes_mle.png used on input line 183.
+(pdftex.def)             Requested size: 160.4403pt x 97.07613pt.
+ <Images/hmm_2.png, id=44, 769.87625pt x 497.86pt>
+File: Images/hmm_2.png Graphic file (type png)
+
+<use Images/hmm_2.png>
+Package pdftex.def Info: Images/hmm_2.png used on input line 187.
+(pdftex.def)             Requested size: 160.4403pt x 103.74843pt.
+ <Images/steady_state.png, id=45, 907.39pt x 393.47pt>
+File: Images/steady_state.png Graphic file (type png)
+
+<use Images/steady_state.png>
+Package pdftex.def Info: Images/steady_state.png used on input line 188.
+(pdftex.def)             Requested size: 160.4403pt x 69.56673pt.
+
+<Images/uncertainty_sampling.png, id=46, 1017.8025pt x 647.41875pt>
+File: Images/uncertainty_sampling.png Graphic file (type png)
+
+<use Images/uncertainty_sampling.png>
+Package pdftex.def Info: Images/uncertainty_sampling.png used on input line 190
+.
+(pdftex.def)             Requested size: 160.4403pt x 102.04802pt.
+
+<Images/gauss_soft_em.png, id=47, 988.69376pt x 568.1225pt>
+File: Images/gauss_soft_em.png Graphic file (type png)
+
+<use Images/gauss_soft_em.png>
+Package pdftex.def Info: Images/gauss_soft_em.png used on input line 191.
+(pdftex.def)             Requested size: 160.4403pt x 92.18443pt.
+LaTeX Font Info:    Try loading font information for TS1+jkp on input line 198.
+
+
+(/usr/local/texlive/2016/texmf-dist/tex/latex/kpfonts/ts1jkp.fd
+File: ts1jkp.fd 2007/08/30 Fontinst v1.928 font definitions for TS1/jkp.
+)
+Package microtype Info: Loading generic settings for font family
+(microtype)             `jkp' (encoding: TS1).
+(microtype)             For optimal results, create family-specific settings.
+(microtype)             See the microtype manual for details.
+
+Underfull \hbox (badness 10000) in paragraph at lines 202--203
+[]$[][] \OT1/jkp/m/n/9 (+20) = [] =
+ []
+
 )
 Package mdframed Info: mdframed inside a box 
- mdframed uses option nobreak mdframed on input line 192.
+ mdframed uses option nobreak mdframed on input line 194.
 
 Overfull \vbox (0.58315pt too high) has occurred while \output is active []
 
 
-[2 <./mom_tensors.png> <./mom_2.png> <./single_topic.png> <./single_topic_2.png
-> <./tensor_decomp.png> <./tensor_decomp_2.png> <./tensor_decomp_3.png>]
-(./652_cheatsheet.aux) ) 
+[2 <./Images/hankel.png> <./Images/hankel2.png> <./Images/method_of_moments.png
+> <./Images/mom_tensors.png> <./Images/mom_2.png> <./Images/single_topic.png> <
+./Images/single_topic_2.png> <./Images/tensor_decomp.png> <./Images/tensor_deco
+mp_2.png> <./Images/tensor_decomp_3.png> <./Images/bayes_mle.png> <./Images/hmm
+_2.png> <./Images/steady_state.png> <./Images/uncertainty_sampling.png> <./Imag
+es/gauss_soft_em.png>] (./652_cheatsheet.aux) ) 
 Here is how much of TeX's memory you used:
- 28769 strings out of 493014
- 578576 string characters out of 6133351
- 682868 words of memory out of 5000000
- 31702 multiletter control sequences out of 15000+600000
- 92120 words of font info for 129 fonts, out of 8000000 for 9000
+ 28827 strings out of 493014
+ 579985 string characters out of 6133351
+ 688694 words of memory out of 5000000
+ 31722 multiletter control sequences out of 15000+600000
+ 95512 words of font info for 153 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 58i,14n,83p,10425b,1123s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/local/texlive/2016/texmf-dist/fonts/enc/dvips/kpf
-onts/kpfonts-expert.enc}{/usr/local/texlive/2016/texmf-dist/fonts/enc/dvips/bas
-e/8r.enc}{/usr/local/texlive/2016/texmf-dist/fonts/enc/dvips/sourcesanspro/a_gg
-s4wk.enc}</usr/local/texlive/2016/texmf-dist/fonts/type1/adobe/sourcesanspro/So
-urceSansPro-Bold.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/adobe/sour
-cesanspro/SourceSansPro-Regular.pfb></usr/local/texlive/2016/texmf-dist/fonts/t
-ype1/public/kpfonts/jkpbn8a.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1
-/public/kpfonts/jkpex.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/publi
-c/kpfonts/jkpmi.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/kpfo
-nts/jkpmia.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/kpfonts/j
-kpmn8a.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/kpfonts/jkpmn
-e.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/kpfonts/jkpsy.pfb>
-
-Output written on 652_cheatsheet.pdf (2 pages, 714743 bytes).
+ 55i,13n,76p,10425b,992s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/local/texlive/2016/texmf-d
+ist/fonts/enc/dvips/kpfonts/kpfonts-expert.enc}{/usr/local/texlive/2016/texmf-d
+ist/fonts/enc/dvips/base/8r.enc}{/usr/local/texlive/2016/texmf-dist/fonts/enc/d
+vips/sourcesanspro/a_ggs4wk.enc}</usr/local/texlive/2016/texmf-dist/fonts/type1
+/adobe/sourcesanspro/SourceSansPro-Bold.pfb></usr/local/texlive/2016/texmf-dist
+/fonts/type1/adobe/sourcesanspro/SourceSansPro-Regular.pfb></usr/local/texlive/
+2016/texmf-dist/fonts/type1/public/kpfonts/jkpbn8a.pfb></usr/local/texlive/2016
+/texmf-dist/fonts/type1/public/kpfonts/jkpex.pfb></usr/local/texlive/2016/texmf
+-dist/fonts/type1/public/kpfonts/jkpmi.pfb></usr/local/texlive/2016/texmf-dist/
+fonts/type1/public/kpfonts/jkpmia.pfb></usr/local/texlive/2016/texmf-dist/fonts
+/type1/public/kpfonts/jkpmn8a.pfb></usr/local/texlive/2016/texmf-dist/fonts/typ
+e1/public/kpfonts/jkpmne.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/pu
+blic/kpfonts/jkpsy.pfb>
+Output written on 652_cheatsheet.pdf (2 pages, 939435 bytes).
 PDF statistics:
- 88 PDF objects out of 1000 (max. 8388607)
+ 98 PDF objects out of 1000 (max. 8388607)
  40 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 23650 words of extra memory for PDF output out of 24883 (max. 10000000)
+ 23675 words of extra memory for PDF output out of 24883 (max. 10000000)
 

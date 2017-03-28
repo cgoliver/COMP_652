@@ -13,6 +13,17 @@ $P(A,B \vert C) = \frac{P(A, B, C)}{P(C)}$ \\
 {\bf MAP:} $h_{MAP} = \argmax_{h\in H} P(h \vert D) = \argmax_{h\in H} P(D \vert h) P(h)$\\ 
 {\bf Lagrange: } $L(\vek{x}, \lambda) = f(\vek{x}) + \lambda g(\vek{x})$
 Set constraint $g(\vek{x})$ to zero and add multiplier. \\
+{\bf Multinomial: } $(x_1 + x_2  + \cdots + x_m)^n 
+ = \sum_{k_1+k_2+\cdots+k_m=n} {n \choose k_1, k_2, \ldots, k_m}
+  \prod_{t=1}^m x_t^{k_t}\,$ \\
+  $(a+b+c)^3 = a^3 + b^3 + c^3 + 3 a^2 b + 3 a^2 c + 3 b^2 a + 3 b^2 c + 3 c^2 a + 3 c^2 b + 6 a b c.$\\
+{\bf Entropy: } $H(X)  = - \sum_{i=1}^n p(x_i)\log p(x_i)$\\
+{\bf Cond. entropy:} $H(Y \vert X) = \sum_{x \in X} p(x) H(Y \vert X = x) = - \sum_{x \in X} p(x) \sum_{y \in Y}p(y \vert x) \log p(y \vert x) = \sum_{x \in X, y \in Y} p(x,y) \log \frac{p(x)}{p(x, y)}$\\
+$H(Y \vert X) = H(X \vert Y) - H(X) + H(Y)$ 
+$H(X_1, ... X_n) = \sum_{i}^{n} H(X_i \vert X_1, ... X_{n-1})$
+{\bf KL Divergence: } $D_{KL} = \sum_{x} P(x) \log \frac{P(x)}{Q(x)}$ \\
+{\bf Mutual info: } $I(X;Y) = \sum_{y \in Y}\sum_{x \in X} p(x,y) \log \frac{p(x, y)}{p(x)p(y)}$\\
+$I(X;Y) = H(X) - H(X \vert Y) = H(X, Y) - H(X \vert Y) - H(Y \vert X)$
 $$\vek{xy^T} = \begin{bmatrix}
            x_{1} \\
            \vdots \\
@@ -56,16 +67,11 @@ $AA^{-1} = A^{-1}A = I$ for square matrices. \\
 {\bf Norm: } $\vert \vert \vek{x} \vert \vert_{d} = \sum_{i} x_{i}^{d}$ \\
 {\bf Bias vs Variance: } $\mathrm{E}\Big[\big(y - \hat{f}(x)\big)^2\Big] = \mathrm{E}\big[\hat{f}(x) - f(x)\big]^2 + \mathrm{E}[\hat{f}(x)^2] - \mathrm{E}[\hat{f}(x)]^2 + \epsilon^2$
 
-\section{todo}
-\begin{itemize}
-\item Polynomial multiplication
-\item Gradient vs partial derivative
-\item 
-\end{itemize}
-
 %%%% EARLY STUFF %%%
 
 \section{Regression}
+\subsection{Regularization}
+Higher $\lambda$ more bias. With more data, variance decreases can afford weaker regularization (less bias).
 \subsection{L2 regularization}
 Weights do not reach zero. Faster.
 $$J_w = \frac{1}{2}(\Phi\vek{w} - \vek{y})^T(\Phi \vek{w} - \vek{y}) + \frac{\lambda}{2}\vek{w}^T\vek{w}$$
@@ -75,8 +81,13 @@ Some weights set to zero. More expensive.
 \subsection{Gradient Descent}
 $\vek{w} \leftarrow \vek{w} - \alpha \nabla \log L(\vek{w})$
 $\vek{w} \leftarrow \vek{w} - \alpha \nabla \log J(\vek{w})$
+\subsection{Logistic Regression}
+$\sigma (t) = \frac{e^t}{e^t+1} = \frac{1}{1+e^{-t}}$
+$L(\mathbf{w}) =\ -\frac1N\sum_{n=1}^N\ \bigg[y_n  \log \hat y_n + (1 - y_n)  \log (1 - \hat y_n)\bigg]$
 
 \subsection{Bayesian regularization}
+Can sample hypotheses from prior distribution on parameters. When get data, posterior changes where we draw hypotheses from. No need for regularization. Use sequential bayesian updating to get new prior on parameters given data. $\text{new prior} \propto {current prior} \times {new likelihood}$ \\
+i.e. $\pi_{n+1} \propto \pi_{n} \times p(x_{n+1} \vert \theta_n, x_n)$
 
 
 \includegraphics[width=0.5\linewidth]{error.png}
@@ -84,13 +95,8 @@ $\vek{w} \leftarrow \vek{w} - \alpha \nabla \log J(\vek{w})$
 \section{Kernels}
 $k(\vek{x}, \vek{z}) = \phi(\vek{x}) \cdot \phi(\vek{z})$
 {\bf Mercer theorem:} $K(\vek{x}, \vek{z})$ is kernel iff Gram matrix $\vek{K}$ symmetric and positive semidefinite: $\vek{K_{ij}} = \vek{K_{ji}}$ and $\vek{z}^{T}\vek{K}\vek{z} \geq 0$
-$\vek{K} = \Phi\Phi^T$ where $\vek{K_{nm}} = \phi(\vek{x_n})^T\phi(\vek{x_m}) = k(\vek{x_n}, \vek{x_m})$ Gram matrix size of input.
+$\vek{K} = \Phi\Phi^T$ where $\vek{K_{nm}} = \phi(\vek{x_n})^T\phi(\vek{x_m}) = k(\vek{x_n}, \vek{x_m})$ Gram matrix size of input. Try to find a feature map whose dot product yields the kernel.
 
-
-\begin{itemize}
-\item Kernel properties
-\item Proving kernels
-\end{itemize}
 
 \section{SVM}
 Minimize absolute error. More robust to outliers. Max margin is convex optimization.
@@ -99,8 +105,8 @@ $h_{\vek{w}}(\vek{x}) = \text{sign}(\sum_{i=1}^m \alpha_{i}y_{i}(\vek{x_{i}}\vek
 $\alpha_{i} > 0$ only for support vectors. Soft error SVM: $0 < \zeta \leq 1$ if inside margin. $\zeta > 1$ if misclassified. Total errors: $C \sum_{i} \zeta$. Large $C$ higher variance.
 
 \section{EM/Active Learning/Missing Data}
-When missing data: many local maxima (normally likelihood has unique max), no closed form solutions. So we do gradient ascent or EM. $\log L(\theta) = \sum_{\text{complete data}} \log P(\vek{x_i}, y_i \vert \theta) + \sum_{\text{incomplete data}} \log \sum_{y} (\vek{x_i} \vert \theta)$. {\bf E step}: compute expected assignment (hard or soft) of points to distributions (estimate $p(y_i = k \vert \theta)$). {\bf M step: } recompute parameters to maximize likelihood of current assignments $p(\theta \vert y_i)$. Good for low dimensionality data. 
-
+When missing data: many local maxima (normally likelihood has unique max), no closed form solutions. So we do gradient ascent or EM. $\log L(\theta) = \sum_{\text{complete data}} \log P(\vek{x_i}, y_i \vert \theta) + \sum_{\text{incomplete data}} \log \sum_{y} (\vek{x_i} \vert \theta)$. {\bf E step}: compute expected assignment (hard or soft, in soft we compute the weight for each distribution accounting for each point.) of points to distributions (estimate $p(y_i = k \vert \theta)$). {\bf M step: } recompute parameters to maximize likelihood of current assignments $p(\theta \vert y_i)$. Good for low dimensionality data. 
+{\bf Active learning sampling strategies: } 1. generate examples for oracle. 2. query if instance in region of uncertainty (costly to maintain region) 3. uncertainty sampling. 4. query by committee (set of hypotheses vote. take examples for which KL divergence between distributions predicted by each hypothesis is high). 5. Expected error reduction/ max info gain (consider impact of labelling $\vek{x}$ with all labels, measure impact on other examples. 6. Density based (queries far from major concentration of data less useful)
 \section{Bayes Nets}
 $p(x_1, ..., x_{n}) = \prod_{i-1}^{n} p(x_i \vert x_{\pi_i})$
 
@@ -174,6 +180,30 @@ Yields consistent estimators (approach true distribution in limit of infinite da
 
 \includegraphics[width=\linewidth]{tensor_decomp_3.png}
 
+\includegraphics[width=\linewidth]{bayes_mle.png}
+
+
+\section{HMM notes}
+\includegraphics[width=\linewidth]{hmm_2.png}
+\includegraphics[width=\linewidth]{steady_state.png}
+
+\includegraphics[width=\linewidth]{uncertainty_sampling.png}
+\includegraphics[width=\linewidth]{gauss_soft_em.png}
+
+
+
+\section{Miscellaneous}
+
+\begin{itemize}
+\item ML overfits as it prefers more parameters. Need regularization.
+\item Mean square error is ML estimator of error given gaussian noise assumption.
+\item If hypothesis is linear, gradient descent converges to unique global optimum.
+\item Gibbs sampling with no evidence: stationary distribution is the joint over all variables.
+\item $\frac{P(X = x' \vert y)}{P(X=s \vert y)} = \frac{P(X = x',  y)}{P(X=s, y)} = \frac{\prod_C \psi_C (X = x', y)}{\prod_C \psi_C (X = x, y)}$
+\item Bayes net has at most $2^k$ parameters where $k$ is the max number of parents in a node.
+\item HMM has unique steady state distribution if it ergodic (all states can be reached from any other state and there are no periodic cycles). Equilibrium reached regardless of initial distribution.
+\item Gradient descent not necessarily gives legal parameters.
+\end{itemize}
 
 
 
