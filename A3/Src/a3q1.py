@@ -18,22 +18,26 @@ def pca_fits(data):
     test_errors = []
 
     features = X_train.shape[1]
+    examples = X_train.shape[0]
 
-    for c in range(1, features):
-        pca = PCA(n_components=c)
-        pca.fit(X_train)
+    kf = KFold(n_splits=5)
 
-        X_train_pca = pca.transform(X_train)
-        X_test_pca = pca.transform(X_test)
+    
+        for c in range(1, features):
+            pca = PCA(n_components=c)
+            pca.fit(X_train)
 
-        train_proj = pca.inverse_transform(X_train_pca)
-        test_proj = pca.inverse_transform(X_test_pca)
+            X_train_pca = pca.transform(X_train)
+            X_test_pca = pca.transform(X_test)
 
-        train_loss = ((X_train - train_proj) ** 2 ).mean()
-        test_loss = ((X_test - test_proj) ** 2 ).mean()
+            train_proj = pca.inverse_transform(X_train_pca)
+            test_proj = pca.inverse_transform(X_test_pca)
 
-        train_errors.append(train_loss)
-        test_errors.append(test_loss)
+            train_loss = ((X_train - train_proj) ** 2 ).mean()
+            test_loss = ((X_test - test_proj) ** 2 ).mean()
+
+            train_errors.append(train_loss)
+            test_errors.append(test_loss)
 
 
     plt.plot(range(1, features), train_errors, label="train error")
