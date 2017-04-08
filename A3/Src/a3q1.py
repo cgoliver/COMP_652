@@ -10,19 +10,20 @@ from sklearn.utils import shuffle
 data_path = "../Data/hw3pca.txt"
 
 def pca_fits(data):
-    #split
-    X_train, X_test = train_test_split(data, test_size=0.2)
-    #shuffle data
-
-    train_errors = []
-    test_errors = []
-
-    features = X_train.shape[1]
-    examples = X_train.shape[0]
-
     kf = KFold(n_splits=5)
 
-    
+    total_train_err = []
+    total_test_err = []
+
+    for train_index, test_index in kf.split(data): 
+        X_train, X_test = data[train_index], data[test_index]
+
+        train_errors = []
+        test_errors = []
+
+        features = X_train.shape[1]
+        examples = X_train.shape[0]
+
         for c in range(1, features):
             pca = PCA(n_components=c)
             pca.fit(X_train)
@@ -40,12 +41,12 @@ def pca_fits(data):
             test_errors.append(test_loss)
 
 
-    plt.plot(range(1, features), train_errors, label="train error")
-    plt.plot(range(1, features), test_errors, label="test error")
-    plt.xlabel("Number of components")
-    plt.ylabel("Mean reconstruction error")
-    plt.legend()
-    plt.show()
+        plt.plot(range(1, features), train_errors, label="train error")
+        plt.plot(range(1, features), test_errors, label="test error")
+        plt.xlabel("Number of components")
+        plt.ylabel("Mean reconstruction error")
+        plt.legend()
+        plt.show()
 
     pass
 if __name__ == "__main__":
