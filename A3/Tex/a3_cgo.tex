@@ -16,7 +16,7 @@
 \usepackage{blkarray}
 
 \title{Comp 652: Assignment 3}
-\author{Carlos G. Oliver}
+\author{Carlos G. Oliver (260425853)}
 \date{\today}                                           % Activate to display a given date or no date
 
 \begin{document}
@@ -48,7 +48,7 @@ H_g = \begin{blockarray}{cccccc}
 \label{mat:h_1}
  \]
 
-The above matrix is arranged so all possible strings composed only of $1$s, $Q = \{1\}^N \quad \forall N \in \mathcal{Z}$ precede all other strings ($\Sigma^{*} - Q$) with the exception of $\{0\}^1$ and $\lambda$. If we order prefixes and suffixes in S in increasing $N$ we can easily see that any row $m$ in this sub block $H^{1}_g$ of $H_g$ is a linear combination in the form $H^{1}_g(m, \cdot) = 2H^{1}_g(m, \cdot) - H^{1}_g(m-1, \cdot)$. The remaining entries in $H_g$ are formed by prefixes and suffixes containing $0$s which do not contribute to the evaluation of $g$ and therefore can also be obtained from rows or columns in $H^{1}$. Therefore the rank of $H_g$ is 2 where only the $\lambda$ or $\{0\}^1$ and the $\{1\}^1$ contribute to the row rank. The same can be shown for the column rank.
+The above matrix is arranged so all possible strings composed only of $1$s, $Q = \{1\}^N \quad \forall N \in \mathbb{Z^+}$ precede all other strings ($\Sigma^{*} - Q$) with the exception of $\{0\}^1$ and $\lambda$. If we order prefixes and suffixes in S in increasing $N$ we can easily see that any row $m$ in this sub block $H^{1}_g$ of $H_g$ is a linear combination in the form $H^{1}_g(m, \cdot) = 2H^{1}_g(m, \cdot) - H^{1}_g(m-1, \cdot)$. The remaining entries in $H_g$ are formed by prefixes and suffixes containing $0$s which do not contribute to the evaluation of $g$ and therefore can also be obtained from rows or columns in $H^{1}$. Therefore the rank of $H_g$ is 2 where only the $\lambda$ or $\{0\}^1$ and the $\{1\}^1$ contribute to the row rank. The same can be shown for the column rank.
 
 \subsection{(b)}
 
@@ -70,17 +70,27 @@ Now we use this identity to compute the sum of the function $f$ over all words a
 
 \begin{equation}
 \begin{aligned}
-f(w) = \alpha_0 Aw \alpha_{\infty}
+f(w) = \alpha_0^T Aw \alpha_{\infty}
 \end{aligned}
 \end{equation}
 
 So for all the words we have
 \begin{equation}
 \begin{aligned}
-\sum_{w \in \Sigma^*} f(w) &= \sum_{w \in \Sigma^*} \alpha_0 A_w \alpha_{\infty} \\
-					 &= \alpha_0 \bigg( \sum_{w \in \Sigma^*}  A_w  \bigg) \alpha_{\infty} \\
-					 &= \alpha_0 (I - A_0 - A_1)^{-1} \alpha_{\infty}
+\sum_{w \in \Sigma^*} f(w) &= \sum_{w \in \Sigma^*} \alpha_0^T A_w \alpha_{\infty} \\
+					 &= \alpha_0^T \bigg( \sum_{w \in \Sigma^*}  A_w  \bigg) \alpha_{\infty} \\
+					 &= \alpha_0^T (I - A_0 - A_1)^{-1} \alpha_{\infty}
+\end{aligned}
+\end{equation}
+We can use this property to compute $f_{subsrting}(w)$ using an automaton by recognizing that the contribution of transition matrices from $u$ and $v$ to the sum can be reduced to the same identity as above as they sum over all of $\Sigma^*$.
+
+\begin{equation}
+\begin{aligned}
+f_{substring} (w)  &= \sum_{u \in \Sigma^*, v \in \Sigma^*} f(uwv) \\
+			 &=  \sum_{u \in \Sigma^*, v \in \Sigma^*} \alpha_0^T A_u A_w A_v \alpha_{\infty} \\
+			 &=   \alpha_0^T (I - A_0 - A_1)^{-1}  A_w (I - A_0 - A_1)^{-1}  \alpha_{\infty}
 \end{aligned}
 \end{equation}
 
+\subsection{(d)}
 \end{document}  
