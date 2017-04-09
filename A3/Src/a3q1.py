@@ -15,6 +15,8 @@ def pca_fits(data):
     total_train_err = []
     total_test_err = []
 
+    total_var = []
+
     for train_index, test_index in kf.split(data): 
         X_train, X_test = data[train_index], data[test_index]
 
@@ -41,12 +43,30 @@ def pca_fits(data):
             test_errors.append(test_loss)
 
 
-        plt.plot(range(1, features), train_errors, label="train error")
-        plt.plot(range(1, features), test_errors, label="test error")
-        plt.xlabel("Number of components")
-        plt.ylabel("Mean reconstruction error")
-        plt.legend()
-        plt.show()
+        total_test_err.append(test_errors)
+        total_train_err.append(train_errors)
+
+    np_tot_train = np.asarray(total_train_err)
+    np_tot_test = np.asarray(total_test_err)
+
+
+    plt.errorbar(range(1, features), np_tot_train.mean(axis=0),\
+        yerr=np_tot_train.std(axis=0), label="train error")
+    plt.errorbar(range(1, features), np_tot_test.mean(axis=0),\
+        yerr=np_tot_test.std(axis=0), label="test error")
+    plt.xlabel("Number of components")
+    plt.ylabel("Mean reconstruction error")
+    plt.legend()
+    # plt.savefig("../Tex/Figures/reconstruction.pdg", format="pdf")
+    plt.show()
+
+    pca_full = PCA()
+    pca_full.fit(data)
+    plt.plot(pca_full.explained_variance_ratio_)
+    plt.ylabel("Fraction explained variance")
+    plt.xlabel("Number of components")
+    plt.savefig("../Tex/Figures/var.pdf", format="pdf")
+    plt.show()
 
     pass
 if __name__ == "__main__":

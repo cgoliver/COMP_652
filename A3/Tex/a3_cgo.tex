@@ -15,6 +15,11 @@
 \usepackage{intcalc}
 \usepackage{blkarray}
 
+
+\newcommand{\vek}[1]{\mathbf{#1}}
+
+\graphicspath{{Figures/}}
+
 \title{Comp 652: Assignment 3}
 \author{Carlos G. Oliver (260425853)}
 \date{\today}                                           % Activate to display a given date or no date
@@ -23,6 +28,24 @@
 \maketitle
 
 \section{Q1: PCA}
+
+\begin{figure}[h]
+\centering
+\begin{subfigure}{0.5\textwidth}
+\includegraphics[width=\textwidth]{reconstruction.pdf}
+\caption{}
+\label{subfig:rfam_count}
+\end{subfigure}
+~
+\begin{subfigure}{0.46\textwidth}
+\includegraphics[width=\textwidth]{var.pdf}
+\caption{}
+\label{subfig:rfam_stats}
+\end{subfigure}
+
+\caption{}
+\label{fig:rfam}
+\end{figure}
 
 \section{Q2: Spectral methods for weighted automata}
 \subsection{(a)}
@@ -95,4 +118,24 @@ f_{substring} (w)  &= \sum_{u \in \Sigma^*, v \in \Sigma^*} f(uwv) \\
 \subsection{(d)}
 
 Because the word $uwv$ is in $\Sigma^*$ and the training sample $S$ is drawn from $f$ also over $\Sigma^*$, having an automaton that represents this function would also give us a way to learn the function $f_{substring}$. From $S$ we can construct the empirical Hankel matrix $\hat{H}_{f_{substring}}$ and recover the relevant sub-blocks. We can then perform SVD on $H$ and solve for the necessary transition weights $A_w$ and initial/final vecctors $\alpha_0$, $\alpha_{\infty}$ from which we can produce the weighted automaton $\hat{A}$. In order to recover an estimate of $f$ we would have to sample from the automaton over all $w \in \Sigma^*$ as this would compute the probability distribution over all words in $\Sigma^*$. 
+
+
+\section{Q3: Method of moments and multiview model}
+
+\begin{figure}[h]
+\begin{tikzpicture}[
+  vertex/.style={draw,circle,minimum size=1cm},
+  every node/.style={vertex}
+  ]
+	 \node (h) at (0,0) {$h$};
+	  \node [below = of h] (x2) {$\vek{x_2}$};
+	 \node [left = of x2]  (x1) {$\vek{x_1}$};	
+	 \node [right = of x2] (x3) {$\vek{x_3}$};
+	 
+	 \draw [->] (h) edge (x1) (h) edge (x2) (h) edge (x3);
+\end{tikzpicture}
+\caption{Graphical representation of conditional independence relation between random variables $\vek{x_1, x_2, x_3}$ and $h$.}
+\label{fig:graph}
+\end{figure}
+
 \end{document}  
