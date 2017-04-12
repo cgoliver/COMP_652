@@ -138,4 +138,22 @@ Because the word $uwv$ is in $\Sigma^*$ and the training sample $S$ is drawn fro
 \label{fig:graph}
 \end{figure}
 
+Since the $\vek{x_t}$ are conditionally independent given $h$ we can decompose the conditional expectation of the cross moments.
+
+\begin{equation}
+\begin{aligned}
+\mathbb{E}[\vek{x_1} \otimes \vek{x_2} \vert h=j] &= \mathbb{E}[\vek{x_1} \vert h=j] \otimes \mathbb{E}[\vek{x_2} \vert h=j] && \text{by conditional independence} \\
+								           &= \mu_{t=1, j} \otimes \mu_{t=2, j}  \in \mathbb{R}^{d_1 \times d_2}&& \text{by question statement}\\
+								           &= \sum_{i=1}^k w_i \mu_{1,i} \otimes \mu_{2, i}
+\end{aligned}
+\end{equation}
+
+\begin{equation}
+\begin{aligned}
+\mathbb{E}[\vek{x_1} \otimes \vek{x_2} \otimes \vek{x_3} \vert h=j] &= \sum_{i=1}^k w_i \mu_{1,i} \otimes \mu_{2, i} \otimes \mu_{3, i} \in \mathbb{R}^{d_1 \times d_2 \times d_3}
+\end{aligned}
+\end{equation}
+
+Because the $\vek{x_t}$ give rise to non-symmetric tensors, we cannot 
+
 \end{document}  
