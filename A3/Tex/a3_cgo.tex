@@ -154,6 +154,92 @@ Since the $\vek{x_t}$ are conditionally independent given $h$ we can decompose t
 \end{aligned}
 \end{equation}
 
-Because the $\vek{x_t}$ give rise to non-symmetric tensors, we cannot 
+Because the tensor products of the $\vek{x_t}$ give rise to non-symmetric tensors, we cannot apply the standard tensor method of moments as eigenvalue decomposition requires symmetric matrices. Other techniques can be employed but are beyond the scope of this question.
+
+\section{Q4: Coupled Hidden Markov Models}
+
+\subsection{(a)}
+
+Parametrization of CHMM:
+
+\begin{itemize}
+
+\item Initial probabilities:
+\begin{equation}
+\begin{aligned}
+P(s_0 = s) && \forall s \in S \\
+P(u_0 = u) && \forall u \in U
+\end{aligned}
+\end{equation}
+
+\item Transition Probabilities
+\begin{equation}
+\begin{aligned}
+P(s_{t+1} = s' \vert s_{t-1} = s, u_{t-1} = u) && \forall s', s, u \in S \cup U\\
+P(u_{t+1} = u' \vert u_{t-1} = u, s_{t-1} = s) && \forall u', u, s \in S \cup U
+\end{aligned}
+\end{equation}
+
+\item Emission Probabilities
+\begin{equation}
+\begin{aligned}
+P(y_t = y \vert s_t = s) && \forall s \in S, y \in Y \\
+P(z_t = y \vert u_t = u) && \forall u \in U, z \in Z
+\end{aligned}
+\end{equation}
+
+\end{itemize}
+
+\subsection{(b)}
+
+We want to compute $P((y_0, z_0), (y_1, z_1), ...(y_T, z_T))$. We can obtain this probability by marginalizing over the states in the joint over the full model. 
+
+\begin{equation}
+\begin{aligned}
+&P((y_0, z_0), \ldots, (y_T, z_T)) \\
+ &= \sum_{s_0, \ldots, s_T, u_0, \ldots u_T} P((y_0, z_0),  \ldots (y_T, z_T), s_0, \ldots, s_T, u_0, \ldots, u_T) \\
+								 &= \sum_{s_0, \ldots, s_T, u_0, \ldots u_T} P(s_0) P(u_0) \prod_{t=1}^{T} P(s_t \vert s_{t-1}, u_{t-1}) \prod_{t=1}^{T} P(u_t \vert s_{t-1}, u_{t-1}) \prod_{t=0}^{T} P(y_t \vert s_T) \prod_{t=0}^{T} P(z_t \vert u_t) \\
+								 &= \sum_{s_T} P(y_T \vert s_T) \sum_{u_T} P(z_T \vert u_T) \sum_{s_0, \ldots, s_{T-1}, u_0, \ldots u_{T-1}} P(s_T \vert s_{T-1}) P(u_T \vert u_{t-1}) P(s_0) P(u_0)\\
+								 & \qquad  \prod_{t=1}^{T-1} P(s_t \vert s_{t-1}, u_{t-1}) \prod_{t=1}^{T-1} P(u_t \vert s_{t-1}, u_{t-1})
+\end{aligned}
+\label{eq:hmm1}
+\end{equation}
+
+We obtain the second step simply by factoring the graph into its independent components according to the graphical model. By rearranging terms we see that the full joint distribution can be written as a product of the distribution at the final time $T$ and the joint over all times $T-1$ which suggests a dynamic programming algorithm which we can write in the following form:
+
+\begin{equation}
+\begin{aligned}
+P((y_0, z_0),...(y_T, z_T)) &= \sum_{s_T, u_T} P((y_0, z_0), (y_1, z_1), ...(y_T, z_T), u_T, s_T) \\
+					&= \sum_{s_T, u_T} P(z_T \vert u_T) P(y_T \vert s_T) \sum_{S_{T-1}} P(s_T \vert s_{T-1}) P(u_T \vert u_{T-1}) P((y_0, z_0), ...(y_T, z_T), s_{T-1}, u_{T-1})
+\end{aligned}
+\end{equation}
+
+We define a matrix $A_{t}(s, u)$ of dimensions $\vert S \vert$ and $\vert U \vert$ that will store the probability of the observation sequence until time $t$ and of state $s_t$ and $u_t$. In the uncoupled version of HMM we have a vector instead of a matrix. The entries of this matrix have the following form:
+
+\begin{equation}
+A_{t}(s,u) = P((y_0, z_0),...(y_t, z_t), s_t=s, u_t=u)
+\end{equation}
+
+At $t=0$ we have our base case which is a function of the initial probabilities $s_0$ and $u_0$:
+
+\begin{equation}
+A_{0}(s,u) = P(y_0, z_0, u_0=u, s_0=s) = P(s_0 =s )p(u_0 = u) P(y_0 \vert s_0 = s)P(z_0 \vert s_0=s) \qquad \forall s,u \in S, U
+\end{equation}
+
+For all subsequent time steps $t=1,... t=T$ we can use the recursive expression derived in (\ref{eq:hmm1}):
+
+\begin{equation}
+\begin{aligned}
+A_t(s,u) = P(y_t \vert s_t) P(z_t \vert u_t) \sum_{s_{t-1}, u_{t-1}} P(s_t \vert s_{t-1}, u_{t-1}) P(u_t \vert s_{t-1}, u_{t-1}) A_{t-1}(s, t)
+\end{aligned}
+\end{equation}
+
+Rewriting this in more compact form:
+
+\begin{equation}
+P(y_0, z_0),...(y_t, z_t)) = \sum_{s_T, u_T} A_{T}(s,u)
+\end{equation}
+
+
 
 \end{document}  
