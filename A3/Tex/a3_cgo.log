@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.5.22)  13 APR 2017 17:43
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.5.22)  13 APR 2017 19:17
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -609,23 +609,23 @@ Package: blkarray 2015/02/27 v0.07 Block array (dpc)
 (./a3_cgo.aux)
 \openout1 = `a3_cgo.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 27.
-LaTeX Font Info:    ... okay on input line 27.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 27.
-LaTeX Font Info:    ... okay on input line 27.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 27.
-LaTeX Font Info:    ... okay on input line 27.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 27.
-LaTeX Font Info:    ... okay on input line 27.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 27.
-LaTeX Font Info:    ... okay on input line 27.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 27.
-LaTeX Font Info:    ... okay on input line 27.
-LaTeX Font Info:    Try loading font information for U+msa on input line 27.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 28.
+LaTeX Font Info:    ... okay on input line 28.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 28.
+LaTeX Font Info:    ... okay on input line 28.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 28.
+LaTeX Font Info:    ... okay on input line 28.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 28.
+LaTeX Font Info:    ... okay on input line 28.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 28.
+LaTeX Font Info:    ... okay on input line 28.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 28.
+LaTeX Font Info:    ... okay on input line 28.
+LaTeX Font Info:    Try loading font information for U+msa on input line 28.
  (/usr/local/texlive/2016/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 27.
+LaTeX Font Info:    Try loading font information for U+msb on input line 28.
 
 (/usr/local/texlive/2016/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
@@ -685,13 +685,13 @@ Package caption Info: End \AtBeginDocument code.
 File: Figures/reconstruction.pdf Graphic file (type pdf)
 
 <use Figures/reconstruction.pdf>
-Package pdftex.def Info: Figures/reconstruction.pdf used on input line 35.
+Package pdftex.def Info: Figures/reconstruction.pdf used on input line 36.
 (pdftex.def)             Requested size: 215.0023pt x 161.25204pt.
 
 <Figures/var.pdf, id=5, 462.52798pt x 346.89601pt>
 File: Figures/var.pdf Graphic file (type pdf)
  <use Figures/var.pdf>
-Package pdftex.def Info: Figures/var.pdf used on input line 41.
+Package pdftex.def Info: Figures/var.pdf used on input line 42.
 (pdftex.def)             Requested size: 197.80501pt x 148.35251pt.
 
 [1{/usr/local/texlive/2016/texmf-var/fonts/map/pdftex/updmap/pdftex.map} <./Fig
@@ -700,7 +700,7 @@ ures/reconstruction.pdf> <./Figures/var.pdf
 pdfTeX warning: /Library/TeX/texbin/pdflatex (file ./Figures/var.pdf): PDF incl
 usion: multiple pdfs with page group included in a single page
 >]
-Overfull \hbox (5.92368pt too wide) in paragraph at lines 74--75
+Overfull \hbox (5.92368pt too wide) in paragraph at lines 75--76
 []\OT1/cmr/m/n/10.95 The above ma-trix is ar-ranged so all pos-si-ble strings c
 om-posed only of $1$s, $\OML/cmm/m/it/10.95 Q \OT1/cmr/m/n/10.95 = \OMS/cmsy/m/
 n/10.95 f\OT1/cmr/m/n/10.95 1\OMS/cmsy/m/n/10.95 g[] 8\OML/cmm/m/it/10.95 N \OM
@@ -708,17 +708,17 @@ S/cmsy/m/n/10.95 2
  []
 
 [2] [3]
-Overfull \hbox (3.65045pt too wide) detected at line 206
+Overfull \hbox (3.65045pt too wide) detected at line 207
 [] []
  []
 
 [4]
-Overfull \hbox (94.28514pt too wide) detected at line 215
+Overfull \hbox (94.28514pt too wide) detected at line 216
 [] []
  []
 
 
-Overfull \hbox (39.98824pt too wide) detected at line 227
+Overfull \hbox (39.98824pt too wide) detected at line 228
 \OML/cmm/m/it/10.95 A[]\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 s; u\OT1/cmr/m/n
 /10.95 ) = \OML/cmm/m/it/10.95 P\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 y[]; z[
 ]; u[] \OT1/cmr/m/n/10.95 = \OML/cmm/m/it/10.95 u; s[] \OT1/cmr/m/n/10.95 = \OM
@@ -734,19 +734,19 @@ ML/cmm/m/it/10.95 s[] \OT1/cmr/m/n/10.95 = \OML/cmm/m/it/10.95 s\OT1/cmr/m/n/10
 cmm/m/it/10.95 S; U
  []
 
-[5] (./a3_cgo.aux) )
+[5] (./a3_cgo.bbl) [6] (./a3_cgo.aux) )
 (\end occurred inside a group at level 1)
 
 ### simple group (level 1) entered at line 1061 ({)
 ### bottom level 
 Here is how much of TeX's memory you used:
- 15700 strings out of 493014
- 297092 string characters out of 6133351
- 355422 words of memory out of 5000000
- 18797 multiletter control sequences out of 15000+600000
- 12354 words of font info for 47 fonts, out of 8000000 for 9000
+ 15708 strings out of 493014
+ 297177 string characters out of 6133351
+ 355448 words of memory out of 5000000
+ 18801 multiletter control sequences out of 15000+600000
+ 12700 words of font info for 48 fonts, out of 8000000 for 9000
  1302 hyphenation exceptions out of 8191
- 55i,11n,76p,822b,11046s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 55i,11n,76p,822b,11048s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts
 /cm/cmbx10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/
 cm/cmbx8.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm
@@ -761,12 +761,13 @@ b></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb><
 r/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr
 /local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/l
 ocal/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/loc
-al/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmti9.pfb></usr/local
-/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on a3_cgo.pdf (5 pages, 206694 bytes).
+al/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/loca
+l/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmti9.pfb></usr/local/
+texlive/2016/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on a3_cgo.pdf (6 pages, 230584 bytes).
 PDF statistics:
- 149 PDF objects out of 1000 (max. 8388607)
- 74 compressed objects within 1 object stream
+ 156 PDF objects out of 1000 (max. 8388607)
+ 79 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  23 words of extra memory for PDF output out of 10000 (max. 10000000)
 

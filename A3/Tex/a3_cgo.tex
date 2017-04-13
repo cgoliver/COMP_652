@@ -17,6 +17,7 @@
 
 
 \newcommand{\vek}[1]{\mathbf{#1}}
+\DeclareMathOperator*{\argmax}{argmax}
 
 \graphicspath{{Figures/}}
 
@@ -154,7 +155,7 @@ Since the $\vek{x_t}$ are conditionally independent given $h$ we can decompose t
 \end{aligned}
 \end{equation}
 
-Because the tensor products of the $\vek{x_t}$ give rise to non-symmetric tensors, we cannot apply the standard tensor method of moments as eigenvalue decomposition requires symmetric matrices. Other techniques can be employed but are beyond the scope of this question.
+Because the tensor products of the $\vek{x_t}$ give rise to non-symmetric tensors, we cannot apply the standard tensor method of moments as eigenvalue decomposition requires symmetric matrices ~\cite{anandkumar2014tensor}. Other techniques can be employed but are beyond the scope of this question.
 
 \section{Q4: Coupled Hidden Markov Models}
 
@@ -240,6 +241,50 @@ Rewriting this in more compact form:
 P(y_0, z_0),...(y_t, z_t)) = \sum_{s_T, u_T} A_{T}(s,u)
 \end{equation}
 
+\subsection{(c)}
 
+This task can be accomplished with a modified version of the Viterbi algorithm which is a dynamic programming technique.
+
+We wish to compute the set of hidden states with the maximum probability given the observed sequence:
+
+\begin{equation}
+\argmax_{s_0 u_0, s_1 u_1, ..., s_T u_T} P(s_0 u_0, s_1 u_1, ..., s_T u_T \vert (y_0, z_0),...(y_t, z_t))
+\end{equation}
+
+Using simple rules of probability we can rewrite the conditional probability:
+
+\begin{equation}
+\argmax_{s_0 u_0, s_1 u_1, ..., s_T u_T} \frac{P(s_0 u_0, s_1 u_1, ..., s_T u_T, (y_0, z_0),...(y_t, z_t))}{P((y_0, z_0),...(y_t, z_t))}
+\end{equation}
+
+We note that the denominator is just the probability of the observation sequence and does not depend on the hidden states so we can omit it from further calculations. 
+
+We consider the sequence of hidden states ending at states $s_k, u_l$ and producing observations $(y_t, z_t)$ and let the probability of the most likely sequence ending at $k, l$ be $\gamma(k, l, t)$.
+
+Then, the probability of the most likely sequence at the next time step, $\gamma(t+1)$ can be expressed as a function of $\gamma(k,l,t)$ and the probability
+
+
+To simplify notation we let:
+
+\begin{equation}
+\begin{aligned}
+P(u_t=u' \vert u_{t-1} = u) &\equiv \mathbb{U}_{u, u'}\\
+P(s_t=s' \vert s_{t-1} = s) &\equiv \mathbb{S}_{s, s'}
+\end{aligned}
+\end{equation}
+
+Now we consider the observed sequence $y_0z_0, y_1z_1, ..., y_t, z_t$. Let the probability of the {\it most likely} state sequence $s_0u_0, s_1u_1, ... s_iu_j$ ending at states $i \in S$ and $j \in U$ be stored in the 3D matrix $V$ where:
+
+\begin{equation}
+\begin{aligned}
+V_{1, i, j} = P(y_0 \vert i) P(z_0 \vert j) P(s_0) P(u_0)
+\end{aligned}
+\end{equation}
+
+\section{Notes}
+Collaboration with Navin Mordani and Jeremy Georges-Filtreau.
+
+\bibliographystyle{plain}
+\bibliography{a3_cgo}
 
 \end{document}  
