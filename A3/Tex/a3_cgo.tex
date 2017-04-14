@@ -259,10 +259,7 @@ Using simple rules of probability we can rewrite the conditional probability:
 
 We note that the denominator is just the probability of the observation sequence and does not depend on the hidden states so we can omit it from further calculations. 
 
-We consider the sequence of hidden states ending at states $s_k, u_l$ and producing observations $(y_t, z_t)$ and let the probability of the most likely sequence ending at $k, l$ be $\gamma(k, l, t)$.
-
-Then, the probability of the most likely sequence at the next time step, $\gamma(t+1)$ can be expressed as a function of $\gamma(k,l,t)$ and the probability
-
+Now we can adapt the Viterbi algorithm (as described on Wikipedia) as follows:
 
 To simplify notation we let:
 
@@ -273,13 +270,27 @@ P(s_t=s' \vert s_{t-1} = s) &\equiv \mathbb{S}_{s, s'}
 \end{aligned}
 \end{equation}
 
-Now we consider the observed sequence $y_0z_0, y_1z_1, ..., y_t, z_t$. Let the probability of the {\it most likely} state sequence $s_0u_0, s_1u_1, ... s_iu_j$ ending at states $i \in S$ and $j \in U$ be stored in the 3D matrix $V$ where:
+Now we consider the observed sequence $y_0z_0, y_1z_1, ..., y_t, z_t$. Let the probability of the {\it most likely} state sequence $s_0u_0, s_1u_1, ... s_iu_j$ ending at states $i \in S$ and $j \in U$ be stored in the 3D matrix $V$ where
 
 \begin{equation}
 \begin{aligned}
-V_{1, i, j} = P(y_0 \vert i) P(z_0 \vert j) P(s_0) P(u_0)
+V_{0, i, j} = P(y_0 \vert i) P(z_0 \vert j) P(s_0) P(u_0)
 \end{aligned}
 \end{equation}
+
+Is the sequence at $t=0$ so we just have the emission probabilities multiplied by the initial state probabilities. For subsequent time steps we have the same as above, instead now we include transition probability factors instead of initial state probabilities, as well as the probability of the sequence of states which led to time $t$ which is just $V_{t-1, s, u}$:
+
+\begin{equation}
+V_{t, i, j} = \argmax_{s \in S, u \in U} P(y_t \vert i) P(z_t \vert j) \mathbb{S}_{s, i} \mathbb{U}_{u, j} V_{t-1, s, u}
+\end{equation}
+
+This will result in a dynamic programming table storing the probability of all possible paths through the CHMM. Instead of a 2D table as in the standard Viterbi algorithm we will have a 3D table of dimensions $|T| \times |S| \times |U|$. To retrieve the most likely sequence of hidden states, we store back pointers at every $V_t$ that lead to the state that maximized $V_{t-1}$. 
+
+\subsection{(d)}
+
+If chains are coupled every $k$ time steps, then for time steps that are multiples of $k$ we have the same form as the CHMM and for those that are not multiples of $k$ we have two independent chains. This would allow us to decompose the probabilities for time steps in parts (b) and (c) into those that are multiples of $k$ i.e. $\{ t \in \pi_{k} \qquad \text{if} \qquad t \mod k = 0 \}$  and thus remain as before, and those that are not multiples of $k$, i.e. $t \notin \pi_k$ and there is no dependence between chains.
+
+
 
 \section{Notes}
 Collaboration with Navin Mordani and Jeremy Georges-Filtreau.
