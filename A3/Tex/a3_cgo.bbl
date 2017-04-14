@@ -1,0 +1,14 @@
+\begin{thebibliography}{1}
+
+\bibitem{anandkumar2014tensor}
+Animashree Anandkumar, Rong Ge, Daniel~J Hsu, Sham~M Kakade, and Matus
+  Telgarsky.
+\newblock Tensor decompositions for learning latent variable models.
+\newblock {\em Journal of Machine Learning Research}, 15(1):2773--2832, 2014.
+
+\bibitem{balle2014spectral}
+Borja Balle, Xavier Carreras, Franco~M Luque, and Ariadna Quattoni.
+\newblock Spectral learning of weighted automata.
+\newblock {\em Machine Learning}, 96(1-2):33--63, 2014.
+
+\end{thebibliography}
