@@ -28,7 +28,19 @@
 \begin{document}
 \maketitle
 
+
+%%%%% Q1 %%%%%%%
+
 \section{Q1: PCA}
+
+Dimensionality reduction using PCA on this dataset appears to have been quite effective. We can see that it is likely that the true dimensionality is much lower than the original number of features of $250$. I performed PCA (implemented in scikit-learn) and report averaged values over 5 folds (yielding 80-20 train-test split) of the data. Looking at the mean variance explained by the top eigenvalues {\bf Fig. \ref{fig:var}} we see that the vast majority (over 90\%) of variance in the data can be explained by the first few eigenvectors. Consequently, we achieve very low reconstruction errors {\bf Fig. \ref{fig:reconstruction}} when projecting on the largest eigenvectors. We achieve a mean squared reconstruction error under $0.05$ by projecting on the top 5 eigenvalues. We can conclude that it is safe to perform further analysis on a reduced representation of the original data.
+
+
+\begin{figure}[h!]
+\includegraphics[width=0.6\textwidth]{var.pdf}
+\caption{Fraction of variance explained from top $n$ eigenvectors.}
+\label{fig:var}
+\end{figure}
 
 \begin{figure}[h]
 \centering
@@ -39,14 +51,16 @@
 \end{subfigure}
 ~
 \begin{subfigure}{0.46\textwidth}
-\includegraphics[width=\textwidth]{var.pdf}
+\includegraphics[width=\textwidth]{reconstruction_cut.pdf}
 \caption{}
 \label{subfig:rfam_stats}
 \end{subfigure}
 
-\caption{}
-\label{fig:rfam}
+\caption{Reconstruction error when projecting on top $n$ eigenvectors. Figure on the right is a truncated version of the full plot on the left.}
+\label{fig:reconstruction}
 \end{figure}
+
+%%%%%%% Q2 %%%%%%%%%
 
 \section{Q2: Spectral methods for weighted automata}
 \subsection{(a)}
@@ -116,10 +130,38 @@ f_{substring} (w)  &= \sum_{u \in \Sigma^*, v \in \Sigma^*} f(uwv) \\
 \end{aligned}
 \end{equation}
 
+This yields a new set of initial and final vectors:
+
+\begin{equation}
+\begin{aligned}
+\hat{\alpha_0}^T &= \alpha_0^T (I - A_0 - A_1)^{-1} \\
+\hat{\alpha}_{\infty} &= (I - A_0 - A_1)^{-1} \alpha_{\infty}
+\end{aligned}
+\end{equation}
+
 \subsection{(d)}
 
-Because the word $uwv$ is in $\Sigma^*$ and the training sample $S$ is drawn from $f$ also over $\Sigma^*$, having an automaton that represents this function would also give us a way to learn the function $f_{substring}$. From $S$ we can construct the empirical Hankel matrix $\hat{H}_{f_{substring}}$ and recover the relevant sub-blocks. We can then perform SVD on $H$ and solve for the necessary transition weights $A_w$ and initial/final vecctors $\alpha_0$, $\alpha_{\infty}$ from which we can produce the weighted automaton $\hat{A}$. In order to recover an estimate of $f$ we would have to sample from the automaton over all $w \in \Sigma^*$ as this would compute the probability distribution over all words in $\Sigma^*$. 
+Given a sample $s_1, s_2, s_3, ..., s_n \in S$ of words from the distribution on $f$ we seek to learn $f_{substring}$ which takes all possible substrings over the strings in $\Sigma^*$. We can use the equation derived in part (c) to learn $f_{substring}$ from samples of $f$ to yield an automaton $\hat{A}$. 
 
+\begin{itemize}
+\item Compute empirical Hankel matrix $\hat{H}_{substring}$ by counting the number of occurrences of $w$ in $S$ and insuring sampling is done in an independent fashion.
+\item Estimate prefix and suffix sub-blocks $\tilde{h}_{u, \lambda}, \tilde{h}_{\lambda, v}$ and transition matrix $H_{\sigma}$ from finite sub-blocks of $\hat{H}$
+\item Perform singular value decomposition of $\hat{H}$ and use factorization to solve for $\hat{\alpha}_{0}, \hat{\alpha}_{\infty}, \hat{A}_0, \hat{A}_{\sigma}$
+\end{itemize}
+
+To retrieve estimates of $f$ we can simply use the relation derived in (c) and solve for the parameters of $A$ from $\hat{A}$.
+
+\begin{equation}
+\begin{aligned}
+\alpha_{0}^T &= \hat{\alpha}_0^T (I - A_0 - A_1) \\
+\alpha_{\infty} &=  (I - A_0 - A_1) \hat{\alpha}_{\infty}
+\end{aligned}
+\end{equation}
+
+We can again use spectral methods to recover an automaton for $f$. So we have a two way relationship between $f$ and $f_{substring}$ (proven more formally in \cite{balle2014spectral}) which has the benefit of adapting automata for more specific modelling and prediction tasks. However, obtaining an estimate of $f$ from $f_{substring}$ is more computationally expensive than learning $f$ directly. 
+
+
+%%%%%%%%%%% Q3 %%%%%%%%%%%%
 
 \section{Q3: Method of moments and multiview model}
 
@@ -156,6 +198,8 @@ Since the $\vek{x_t}$ are conditionally independent given $h$ we can decompose t
 \end{equation}
 
 Because the tensor products of the $\vek{x_t}$ give rise to non-symmetric tensors, we cannot apply the standard tensor method of moments as eigenvalue decomposition requires symmetric matrices ~\cite{anandkumar2014tensor}. Other techniques can be employed but are beyond the scope of this question.
+
+%%%%% Q4 %%%%%%%
 
 \section{Q4: Coupled Hidden Markov Models}
 
@@ -331,7 +375,7 @@ To do this we can use the Baum-Welch algorithm for Expectation Maximization over
 	\Input{$(y_0, z_0),...(y_t, z_t), S, U, \mathcal{A}_0$}
 	\Output{$\argmax_{k, \mathcal{A}} P((y_0, z_0),...(y_t, z_t) \vert k, \mathcal{A})$}
 	
-	$bestProb \leftarrow 0$
+	$bestProb \leftarrow 0$\\
 	$bestK \leftarrow 0$
 	
 	\For{$k$ in $K$}{

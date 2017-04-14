@@ -49,20 +49,31 @@ def pca_fits(data):
     np_tot_train = np.asarray(total_train_err)
     np_tot_test = np.asarray(total_test_err)
 
+    c = 20
 
-    plt.errorbar(range(1, features), np_tot_train.mean(axis=0),\
-        yerr=np_tot_train.std(axis=0), label="train error")
-    plt.errorbar(range(1, features), np_tot_test.mean(axis=0),\
-        yerr=np_tot_test.std(axis=0), label="test error")
+    train_means = np_tot_train.mean(axis=0)[:c]
+    train_stds = np_tot_train.std(axis=0)[:c]
+
+    test_means= np_tot_test.mean(axis=0)[:c]
+    test_stds= np_tot_test.std(axis=0)[:c]
+
+
+    plt.errorbar(np.arange(1, len(train_means)+1), train_means,\
+        yerr=train_stds, label="train error")
+    plt.errorbar(np.arange(1, len(test_means)+1), test_means,\
+        yerr=test_stds, label="test error")
+
+    plt.xticks(np.arange(1, len(train_means)+1, 4))
     plt.xlabel("Number of components")
     plt.ylabel("Mean reconstruction error")
     plt.legend()
-    # plt.savefig("../Tex/Figures/reconstruction.pdg", format="pdf")
+    plt.savefig("../Tex/Figures/reconstruction_cut.pdg", format="pdf")
     plt.show()
 
     pca_full = PCA()
     pca_full.fit(data)
-    plt.plot(pca_full.explained_variance_ratio_)
+    plt.plot(np.cumsum(pca_full.explained_variance_ratio_))
+    plt.xticks(np.arange(1,len(pca_full.explained_variance_ratio_) + 1, 24))
     plt.ylabel("Fraction explained variance")
     plt.xlabel("Number of components")
     plt.savefig("../Tex/Figures/var.pdf", format="pdf")
