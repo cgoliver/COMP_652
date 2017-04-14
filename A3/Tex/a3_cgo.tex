@@ -288,9 +288,62 @@ This will result in a dynamic programming table storing the probability of all p
 
 \subsection{(d)}
 
-If chains are coupled every $k$ time steps, then for time steps that are multiples of $k$ we have the same form as the CHMM and for those that are not multiples of $k$ we have two independent chains. This would allow us to decompose the probabilities for time steps in parts (b) and (c) into those that are multiples of $k$ i.e. $\{ t \in \pi_{k} \qquad \text{if} \qquad t \mod k = 0 \}$  and thus remain as before, and those that are not multiples of $k$, i.e. $t \notin \pi_k$ and there is no dependence between chains.
+If chains are coupled every $k$ time steps, then for time steps that are multiples of $k$ we have the same form as the CHMM and for those that are not multiples of $k$ we have two independent chains. This would allow us to decompose the probabilities for time steps in parts (b) and (c) into those that are multiples of $k$ i.e. $\{ t \in T_{k} \qquad \text{if} \qquad t \mod k = 0 \}$  and thus remain as before, and those that are not multiples of $k$, i.e. $t \notin \pi_k$ and there is no dependence between chains. This would result in a new parametrization of the transition probabilities which can be easily plugged back into both algorithms. \\
 
 
+For all $t \in T_k$:
+
+\begin{equation}
+\begin{aligned}
+P(s_{t+1} = s' \vert s_{t-1} = s, u_{t-1} = u) && \forall s', s, u \in S \cup U\\
+P(u_{t+1} = u' \vert u_{t-1} = u, s_{t-1} = s) && \forall u', u, s \in S \cup U
+\end{aligned}
+\end{equation}
+
+For all $t \notin T_k$:
+
+\begin{equation}
+\begin{aligned}
+P(s_{t+1} = s' \vert s_{t-1} = s) && \forall s', s \in S\\
+P(u_{t+1} = u' \vert u_{t-1} = u) && \forall u', u \in  U
+\end{aligned}
+\end{equation}
+
+\subsection{(e)}
+
+We want to find the $k$ and the set of model parameters $\mathcal{A}$  that maximizes the probability of the observed sequences, given the set of possible states. i.e.:
+
+\begin{equation}
+\argmax_{k, \mathcal{A}} P((y_0, z_0),...(y_t, z_t) \vert k, \mathcal{A})
+\end{equation}
+
+To do this we can use the Baum-Welch algorithm for Expectation Maximization over all possible values of $k$ and pick the one which maximizes the likelihood of the data. At each value of $k$ we pick the parameters that maximize likelihood given $k$ and at the end we pick the $k$ that produces the most likely model. It is important to note that because this is an EM-based algorithm, the parametrization is not guaranteed to converge to a global optimum.
+
+
+\IncMargin{1em}
+\begin{algorithm}[H]
+	\SetKwInOut{Input}{input}\SetKwInOut{Output}{output}
+	\SetKwFunction{KMeans}{KMeans}
+	\SetKwFunction{BaumWelch}{BaumWelch}
+	\SetKwFunction{ForwardAlg}{ForwardAlg}
+	\SetKwFunction{accuracy}{accuracy}
+
+	\Input{$(y_0, z_0),...(y_t, z_t), S, U, \mathcal{A}_0$}
+	\Output{$\argmax_{k, \mathcal{A}} P((y_0, z_0),...(y_t, z_t) \vert k, \mathcal{A})$}
+	
+	$bestProb \leftarrow 0$
+	$bestK \leftarrow 0$
+	
+	\For{$k$ in $K$}{
+		$\mathcal{A'} \leftarrow \BaumWelch((y_0, z_0),...(y_t, z_t), S, U, \mathcal{A}_0, k)$ \\
+		$P((y_0, z_0),...(y_t, z_t) \vert \mathcal{A}, k) \leftarrow \ForwardAlg((y_0, z_0),...(y_t, z_t), S, U, \mathcal{A}', k)$\\
+		$P(k, \mathcal{A}') = P((y_0, z_0),...(y_t, z_t) \vert \mathcal{A}, k) P(A, k)$ \\
+		\If {$P(k, \mathcal{A}') > bestProb$}{
+			$bestK \leftarrow k$
+		}
+	}
+	\Return $bestK$
+\end{algorithm}
 
 \section{Notes}
 Collaboration with Navin Mordani and Jeremy Georges-Filtreau.
